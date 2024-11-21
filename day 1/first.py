@@ -10,5 +10,14 @@ print("Multiple things at a time" , " and have some fun with this!")
 name = "Kashem"
 Age = 23
 sum = 23 + 23
+price = 21.0123
+# print(name , Age , sum , price+sum)
 
-print(name , Age , sum)
+# this is for check data type in Python
+
+print(type(name))
+print(type(Age))
+print(type(sum))
+print(type(price))
+print(type(print))
+print(type(type))
