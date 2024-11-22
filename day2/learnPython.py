@@ -13,28 +13,41 @@ b = 3
 
 # assign operator ( = , += , -= , *= , /= ,%= , **=)
 
-x = 10
-# x = x +10
-x += 10
+# x = 10
+# # x = x +10
+# x += 10
 
-print(x)
+# print(x)
 
-x -= 10
-print(x)
+# x -= 10
+# print(x)
 
-x *= 2
-print(x)
+# x *= 2
+# print(x)
 
-x /= 2
-print(x)
+# x /= 2
+# print(x)
 
-x %=2
-print(x)
+# x %=2
+# print(x)
 
-x **= 2
-print(x)
+# x **= 2
+# print(x)
 
 
+
+
+
+
+# relational operator (== , >= , <= , > , < , != )
+# all that value return True or False
+
+print(a==b)
+print(a>=b)
+print(a<=b)
+print(a>b)
+print(a<b)
+print(a!=b)
 
 
 # logical operator (and , or , not)
