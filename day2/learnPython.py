@@ -52,3 +52,17 @@ print(a!=b)
 
 # logical operator (and , or , not)
 
+active = True
+deactivate = False
+
+print(active and deactivate) # return False
+print(active or deactivate)  # return True
+
+print(not active)            # return False
+print(not deactivate)        # return True
+
+print((a==b) and (a<b))      # return False
+print((a!=b) and (a<b))      # return False
+print((a>=b) or (a!=b))      # return True
+
+
