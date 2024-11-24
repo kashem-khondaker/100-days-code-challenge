@@ -62,3 +62,12 @@ for i in range(5):
     print(i)
 else:
     print("Loop completed!")
+
+print("\nanother conditional for loop in Python\n")
+
+for i in range(10):
+    if(i%2==0):
+        print(i)
+    else:
+        continue
+
