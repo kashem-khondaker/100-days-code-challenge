@@ -18,30 +18,6 @@ for i, char in enumerate(string):
         index = i + 1  
 
 print(count)
-for sub in result:
-    print(sub)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+# for sub in result:
+#     print(sub)
+print("\n".join(result))
