@@ -1,12 +1,12 @@
 
-s = input().strip()
+string = input().strip()
 
 balance = 0  
 count = 0 
 result = []  
 index = 0  
 
-for i, char in enumerate(s):
+for i, char in enumerate(string):
     if char == 'L':
         balance += 1
     elif char == 'R':
@@ -14,7 +14,7 @@ for i, char in enumerate(s):
 
     if balance == 0:
         count += 1
-        result.append(s[index:i+1])
+        result.append(string[index:i+1])
         index = i + 1  
 
 print(count)
