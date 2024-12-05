@@ -36,7 +36,6 @@ class Student:
         print(self.roll)
         print(self.subjects)
         print(self.department)
-    
 st1 = Student("Kashem Khondaker" , 15 , ["Calculus" , "Ordinary" , "Programming" , "Physics 3" , "statistic"] , "Math")
 
 print(Student.college_name)
