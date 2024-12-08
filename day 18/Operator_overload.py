@@ -23,7 +23,23 @@ class Cricketer(Person):
     #
     def exercise(self):
         print('Good for body')
+        
+    def __add__(self,other): # 
+        return self.height + other.height
+    
     
 sakib = Cricketer('Sakib',5.6 , 56 ,"BD")
-sakib.eat()
-sakib.exercise()        
+# sakib = Cricketer('Sakib',5.6 , 56 ,"BD")
+# sakib.eat()
+# sakib.exercise()        
+
+print(6 + 8)
+print('sakib' + 'rakib')
+print([1,2,3,4,5] + [2,1,4,5])
+
+# want to add 2 object
+sakib = Cricketer('Sakib',5.6 , 56 ,"BD")
+Mosfique = Cricketer('Mosfique',5.6 , 56 ,"BD")
+
+print(sakib + Mosfique)
+
