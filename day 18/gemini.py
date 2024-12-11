@@ -4,13 +4,31 @@ class Library:
     @classmethod
     def entry_book(self, book):
         self.book_list.append(book)
-        
-    @classmethod
-    def print_book_list(cls):
-        print("\nBook List:")
-        for book in cls.book_list:
-            print(f"ID: {book._book_id}, Title: '{book._title}', Author: {book._author}, Availability: {'Available' if book._availability else 'Not Available'}")
 
+    @classmethod
+    def view_all_books(self):
+        if not self.book_list:
+            print("\nNo books available in the library.")
+        else:
+            for book in self.book_list:
+                book.view_book_info()
+                print()
+
+    @classmethod
+    def borrow_book_by_id(self, book_id):
+        for book in self.book_list:
+            if book._book_id == book_id:
+                book.borrow_book()
+                return
+        print("Invalid book ID.")
+
+    @classmethod
+    def return_book_by_id(self, book_id):
+        for book in self.book_list:
+            if book._book_id == book_id:
+                book.return_book()
+                return
+        print("Invalid book ID or book not borrowed.")
 
 
 class Book(Library):
@@ -36,8 +54,10 @@ class Book(Library):
             print("Book is not borrowed.")
 
     def view_book_info(self):
-        for book in self.book_list:
-            print(f'ID : {book.book_id} ')
+        print(f"Book ID: {self._book_id}")
+        print(f"Title: {self._title}")
+        print(f"Author: {self._author}")
+        print(f"Availability: {'Available' if self._availability else 'Borrowed'}")
 
 
 

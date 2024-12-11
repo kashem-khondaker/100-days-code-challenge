@@ -19,3 +19,12 @@ class Student:
 # s1 = Student('Kashem' , ['Math' , 'Physics' , 'Chemistry'] , [20,30,40])
 # print(s1.avg())
 
+class Account:
+    def __init__(self,acc_no , acc_pass):
+        self.account_number = acc_no
+        self.__account_password = acc_pass
+    
+acc1 = Account("123" , 'abc')
+print(acc1.account_number )
+# print(acc1.account_password)
+
