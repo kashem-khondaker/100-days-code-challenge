@@ -80,7 +80,7 @@ class Restaurant:
     def __init__(self , name):
         self.name = name
         self.employees = [] # this is database for now
-        self.menu = FoodItem()
+        self.menu = Menu()
     
     def add_employee(self, employee): # ---> employee ta koi teke astese ?
         self.employees.append(employee)
