@@ -26,6 +26,6 @@ class Menu():
         print('Name\tPrice\tQuantity')
         
         for item in self.items:
-            print(f'{self.name}\t{self.price}\t{self.quantity}')
+            print(f'{item.name}\t{item.price}\t{item.quantity}')
             
     
