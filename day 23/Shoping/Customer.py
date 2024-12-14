@@ -35,7 +35,6 @@ class Customer:
                     print(f"{product_name} - {quantity} units")
         print(f"Total Amount: {total}\n")
         
-
     def paybill(self):
         self.buying_history()
         print("Bill paid successfully.")
