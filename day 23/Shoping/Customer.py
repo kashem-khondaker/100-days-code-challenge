@@ -1,42 +1,42 @@
-from user import User
-from product import  ProductManager
+from product import ProductManager
 
-
-class Customer(User):
-    def __init__(self, email, password ):
-        super().__init__(email, password)
+class Customer:
+    def __init__(self):
         self.cart = {}
         self.product_manager = ProductManager()
+
         
-        
-    def view_product(self ):
+    def view_product(self):
         self.product_manager.view_product()
         
-        
-    def buy_product(self , product , quantity):
-        
-        is_available = self.product_manager.is_product_available(product,quantity)
-        if is_available is True:
-            if product in self.cart:
-                self.cart[product] += quantity
-            else : 
-                self.cart[product] = quantity
-            self.product_manager.stock_correction(product , quantity)
-        else : 
-            print(f'Not enough stack for {product.name}')
+
+    def buy_product(self, product_name, quantity):
+        quantity = int(quantity)
+        product = self.product_manager.is_product_available(product_name, quantity)
+        if product:
+            if product.name in self.cart:
+                self.cart[product.name] += quantity
+            else: 
+                self.cart[product.name] = quantity
+
+            self.product_manager.stock_correction(product_name, quantity)
+            print(f"{quantity} units of {product.name} added to cart.")
+        else: 
+            print(f"Not enough stock for {product_name}.")
     
-    
-    
+
     def buying_history(self):
         total = 0
-        for product , quantity in self.cart.items():
-            total += product.price * quantity 
-            print(product , quantity)
-        print(f'Total Amount : {total}')
+        print("\n--- Your Cart ---")
+        for product_name, quantity in self.cart.items():
+            for product in self.product_manager.products:
+                if product.name == product_name:
+                    total += product.price * quantity
+                    print(f"{product_name} - {quantity} units")
+        print(f"Total Amount: {total}\n")
         
-        
+
     def paybill(self):
         self.buying_history()
-        print('Bill paid successfully ')
+        print("Bill paid successfully.")
         self.cart = {}
-    
