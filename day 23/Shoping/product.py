@@ -36,17 +36,3 @@ class ProductManager:
             print("\nStock correction failed. Insufficient quantity.")
         
         
-
-
-
-
-# # Example Usage
-product1 = Product("Laptop", 1000, 5)
-manager = ProductManager()
-manager.add_product(product1)
-
-
-# # Perform stock correction
-manager.stock_correction(product1, 5)  # Should succeed and print updated stock
-# manager.stock_correction(product1, 10) # Should fail and print an error message
-manager.view_product()

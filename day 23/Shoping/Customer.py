@@ -1,5 +1,5 @@
 from user import User
-from product import Product , ProductManager
+from product import  ProductManager
 
 
 class Customer(User):
