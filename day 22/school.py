@@ -65,5 +65,36 @@ class School:
         return grade_map[grade]
     
     def __repr__(self):
-        pass
+        
+        print(f"School Name : {self.name}\n")
+       
+        # all classrooms
+        print('All Class :- \n') 
+        for key in self.classrooms.keys():
+            print(key)
+        
+        # all student
+        print('All students : \n')
+        result = ''
+        for key,value in self.classrooms.items(): # prottekta classroom e gelam
+            result += f"---{key.upper()} Classroom Students\n"
+            for student in value.students:
+                result += f"{student.name}\n"
+        print(result)
+        
+        # All Subjects
+        subject = ''
+        for key,value in self.classrooms.items(): # prottekta classroom e gelam
+            subject += f"---{key.upper()} Classroom Subjects\n"
+            for sub in value.subjects:
+                subject += f"{sub.name}\n"
+        print(subject)
+        
+        print("Students Results")
+        for key,value in self.classrooms.items():
+            for student in value.students:
+                for k,i in student.marks.items():
+                    print(student.name,k,i,student.subject_grade[k])
+                print(student.calculate_final_grade())
+        return ''
     
