@@ -33,3 +33,10 @@ class Customer(User):
             total += product.price * quantity 
             print(product , quantity)
         print(f'Total Amount : {total}')
+        
+        
+    def paybill(self):
+        self.buying_history()
+        print('Bill paid successfully ')
+        self.cart = {}
+    
