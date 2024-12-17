@@ -8,7 +8,7 @@ restaurant = Restaurant(restaurant)
 
 
 def customer():
-    customer = Customer('','','','')
+    customer = Customer(restaurant,'','','')
     while(True):
         print('\n1. Create Account .')
         print('2. View Restaurant Menu .')

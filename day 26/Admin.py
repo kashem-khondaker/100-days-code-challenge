@@ -17,9 +17,6 @@ class Admin:
     def update_menu_item(self , old_name , new_name , new_price , new_quantity):
         self.restaurant.update_menu_item(old_name , new_name , new_price , new_quantity)
         
-        
-    #-------------------------for customer -----------------------------
-    
     
     def add_customer(self , customer):
         self.restaurant.add_customer(customer)

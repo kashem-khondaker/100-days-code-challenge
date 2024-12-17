@@ -4,9 +4,11 @@ class Restaurant:
         self.menus = []
         self.customers = []
     
+    
     def add_item_to_menu(self , menu):
         self.menus.append(menu)
         print('Add item successfully .\n\n')
+    
     
     
     def view_menu(self):
@@ -25,11 +27,16 @@ class Restaurant:
                 return            
         print(f'{name} not found \n')
     
+    
+    
     def find_menu_by_name(self , name):
         for menu in self.menus:
             if menu.name.lower() == name.lower():
+                print(f'{menu.name}\t{menu.price}\t{menu.quantity}')
                 return menu
         return None
+    
+    
     
     def update_menu_item(self, old_name, new_name, new_price, new_quantity):
         menu = self.find_menu_by_name(old_name)
@@ -52,11 +59,15 @@ class Restaurant:
         self.customers.append(customer)
         print('Customer added successfully ..\n')
     
+    
+    
     def view_customer(self):
         for customer in self.customers:
             print(f'\n{customer.name}\t{customer.address}\t{customer.email}')
         print('\n\n')
             
+    
+    
     
     def find_customer_by_name(self, name):
         for customer in self.customers:
@@ -74,5 +85,6 @@ class Restaurant:
         else:
             print(f'{name} does not exist.\n')
 
-            
-    
+
+
+
