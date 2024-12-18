@@ -70,13 +70,11 @@ def admin():
             
             customer = Customer(restaurant , name , email , address)
             restaurant.add_customer(customer)
-            print(f'{name} added successfully ...\n\n')
         elif z == 2:
             restaurant.view_customer()
         elif z == 3:
             name = input('name : ')
             restaurant.remove_customer(name)
-            # print(f'{name} ')
         elif z == 4:
             name = input('name : ')
             price = int(input('price : '))

@@ -32,7 +32,6 @@ class Restaurant:
     def find_menu_by_name(self , name):
         for menu in self.menus:
             if menu.name.lower() == name.lower():
-                print(f'{menu.name}\t{menu.price}\t{menu.quantity}')
                 return menu
         return None
     
