@@ -4,14 +4,17 @@ from management import Manager
 
 name = input('please input inventory name : ')
 inventory = Inventory(name)
+manager = input('manager name : ')
+manager = Manager(manager_name=manager , inventory=inventory)
+
 
 while(True):
     print('\n1. Add a new product')
     print('2. View all products')
     print('3. Search a product by id .')
     print('4. Update stock increase value (+) and decrease value (-).')
-    print('5. Calculate total inventory value .\n')
-    print('6. Exit .')
+    print('5. Calculate total inventory value .')
+    print('6. Exit .\n')
     
     choice = int(input('please input number 1 to 6 : '))
     
@@ -21,6 +24,7 @@ while(True):
         price = int(input('price : '))
         quantity = int(input('quantity : '))
         product = Product(product_id=id , name=name , quantity=quantity , price=price)
+        manager.add_product(product)
     elif choice == 2:
         inventory.display_all_products()
     elif choice == 3:

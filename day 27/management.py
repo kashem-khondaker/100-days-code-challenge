@@ -1,13 +1,10 @@
-from Inventory import Inventory
-
 class Manager:
     def __init__(self , manager_name , inventory):
         self.manager_name = manager_name
-        self.inventory = inventory
-        self.products = []
+        self.inventory = inventory 
     
     def add_product(self , product):
-        self.products.append(product)   
+        self.inventory.products.append(product)   
     
     def view_product(self):
         self.inventory.display_all_products()
