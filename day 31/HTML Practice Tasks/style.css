@@ -1,0 +1,37 @@
+.div-cotainer {
+    border: 2px solid black;
+    justify-content: space-between;
+    padding-left: 20%;
+    padding-right: 20%;
+    
+}
+img{
+    width: 60px;
+}
+.asdf{
+    display: flex;
+   
+}
+.div1{
+    border: 2px solid blue;
+    padding: 20px 10px;
+    
+}
+.div2{
+    border: 2px solid blue;
+    padding: 20px 10px;
+}
+.div2-emement{
+    border: 2px solid blue;
+    padding-right: 10px;
+    margin-left: 20px;
+
+}
+.div1-emement{
+    border: 2px solid blue;
+    padding-right: 10px;
+    margin-left: 20px;
+
+}
+
+
