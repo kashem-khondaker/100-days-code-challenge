@@ -15,7 +15,7 @@ nav{
     align-items: center;
     background-color: rgb(235, 233, 233);
     padding: 5px;
-    background-color: #221B49;
+    background-color: #0c3136;
 }
 .nave-conteiner{
     display: flex;
@@ -107,7 +107,7 @@ body{
 .service-card-title{
     margin-top: 10px;
     margin-bottom: 10px;
-    color: aqua;
+    color: rgba(0, 255, 255, 0.845);
     text-align: center;
     font-weight: 800;
 }
@@ -155,4 +155,50 @@ body{
 }
 .cerde-image{
     width: 100px;
+}
+.footer-parent-div{
+    background: linear-gradient(to left, #0694943e,  #070005 ,#0694944a, #070005  );
+    /* background-color: #0694943e; */
+}
+
+.footer-child-div{
+    /* border: 1px solid red; */
+    height: auto;
+    padding: 20px 0px;
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+    align-items: center;
+}
+
+.footer-child-div h1{
+    /* border: 1px solid red; */
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+.footer-child-div li{
+    /* border: 1px solid red; */
+    line-height: 1.25rem;
+    margin: 3px;
+    font-size: medium;
+}
+.contact-info{
+    /* border: 1px solid red; */
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    padding: 30px;
+}
+i{
+    /* border: 1px solid red; */
+    width: 30px;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+
+}
+div{
+    /* border: 1px solid red; */
 }
