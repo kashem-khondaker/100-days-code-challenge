@@ -7,6 +7,9 @@
   <title>Kashem</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
@@ -37,7 +40,7 @@
                 <a class="nav-link text-light" href="#">About</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-light" href="#">Skills</a>
+                <a class="nav-link text-light" href="#">Project</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link text-light" href="#">Resume</a>
@@ -55,7 +58,7 @@
   <main>
     <section>
         <!-- hero section  start-->
-      <div class="hero-section row  align-items-center ">
+      <div class="hero-section row  align-items-center p-5">
         <!-- hero container  -->
         <div class="hero-contain col-md-6 col-sm-12 p-xl-5">
             <div class="name"><h1>Hi ! <br>I'M Kashem Khondaker</h1></div>
@@ -65,12 +68,18 @@
                     I am a passionate and results-driven JavaScript developer with expertise in frontend and backend frameworks. My technical proficiency extends to Python programming, Django, C++, C, and a strong aptitude for problem-solving. With a solid foundation in HTML, CSS, and Bootstrap, I specialize in crafting responsive, user-friendly web applications. Committed to continuous learning, I thrive on developing innovative solutions to complex challenges in dynamic and collaborative environments.
                 </p>
             </div>
-            <div class="social_media_icons d-flex 
-            justify-content-left align-items-left text-center gap-2 gap-sm-2 gap-md-2 p-3">
+            <div class="social_media_icons d-flex
+            justify-content-left align-items-center text-center gap-2 gap-sm-2 gap-md-2 p-3">
                 <a href="#"><i class="fa-brands fa-github fs-4"></i></a>
                 <a href="#"><i class="fa-brands fa-linkedin fs-4"></i></a>
                 <a href="#"><i class="fa-brands fa-facebook fs-4"></i></a>
-                <a href="#" class="fs-4 d-flex">Download<i class="fa-solid fa-download fs-4"></i></a>
+                <div class="btn d-flex align-items-center bg-primary">
+                    <a href="#" class="fs-4">
+                        Download
+                    </a>
+                    <i class="fa-solid fa-download fs-4">
+                    </i>
+                </div>
             </div>
         </div>
         <!-- hero pic  -->
@@ -78,38 +87,38 @@
             <img class="d-flex align-items-center justify-content-center" src="./sec/hero-image.png" alt="">
         </div>
      </div>
-    <!-- hero section  end-->
-    
+    <!-- hero section  end--> 
     </section>
     <!-- portfolio section  start-->
-    <section>
-        <h2>Portfolio</h2>
-        <div class="portfolio-main row">
+    <section class="w-75 mx-auto">
+        <h2 class="align-items-center text-center p-5 mt-2 mb-4 ">Projects</h2>
+        <!-- slide 1 -->
+        <div class="portfolio-main row align-items-center px-lg-5 px-sm-3 mx-lg-5 mx-sm-4 border mb-4">
             <!-- slider start -->
-            <div class="port-slider col-6 col-md-6 col-sm-12">
+            <div class="port-slider col-6 col-md-6 col-sm-12 ">
                 <div id="carouselExampleCaptions" class="carousel slide">
                     <div class="carousel-indicators">
                       <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                       <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
                       <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
                     </div>
-                    <div class="carousel-inner">
+                    <div class="carousel-inner h-50">
                       <div class="carousel-item active">
-                        <img src="./sec/hero-img2.png" class="d-block w-100" alt="...">
+                        <img src="./sec/c.png" class="d-block w-100 " alt="...">
                         <div class="carousel-caption d-none d-md-block">
                           <h5>First slide label</h5>
                           <p>Some representative placeholder content for the first slide.</p>
                         </div>
                       </div>
                       <div class="carousel-item">
-                        <img src="./sec/hero-img-3.png" class="d-block w-100" alt="...">
+                        <img src="./sec/c.png" class="d-block w-100" alt="...">
                         <div class="carousel-caption d-none d-md-block">
                           <h5>Second slide label</h5>
                           <p>Some representative placeholder content for the second slide.</p>
                         </div>
                       </div>
                       <div class="carousel-item">
-                        <img src="./sec/hero-image.png" class="d-block w-100" alt="...">
+                        <img src="./sec/c.png" class="d-block w-100" alt="...">
                         <div class="carousel-caption d-none d-md-block">
                           <h5>Third slide label</h5>
                           <p>Some representative placeholder content for the third slide.</p>
@@ -130,17 +139,197 @@
 
             <!-- card contain start -->
             <div class="prot-contain col-6 col-md-6 col-sm-12">
-                <div class="contain-heading">something</div>
-                <div class="contain-description">something</div>
-                <div class="contain-list">something</div>
-                <div class="contain-icons">something</div>
+                <div class="contain-heading"><h2>School Management Project<i class="fa-brands fa-google-scholar"></i><i class="fa-brands fa-grav"></i></h2></div>
+                <div class="contain-description">
+                    <p>
+                        A School Management Web Project provides a user-friendly interface for efficiently managing student, teacher, and staff information. It streamlines daily administrative tasks such as attendance tracking, fee management, and class scheduling. The project enhances communication between teachers, students, and parents through notifications and updates. It includes features like reporting, analytics, and data security, ensuring seamless and organized school operations.
+                    </p>
+                </div>
+                <div class="contain-list">
+                    <ul>
+                        <li>Student and Teacher Records Management: Easily add, update, and view student and teacher profiles.</li>
+                        <li>Attendance Tracking: Record and monitor daily attendance for students and staff.</li>
+                        <li>Fee Management: Track fee payments and generate invoices with ease.</li>
+                        <li>Class Scheduling: Organize and manage class timetables and academic schedules efficiently.</li>
+                        <li>Reporting and Analytics: Generate reports for academic performance, attendance, and financial statistics.</li>
+                    </ul>
+                </div>
+                <div class="contain-icons">
+                    <i class="fa-brands fa-react"></i>
+                    <i class="fa-brands fa-css3-alt"></i>
+                    <i class="fa-brands fa-html5"></i>
+                    <i class="fa-brands fa-python"></i>
+                </div>
+            </div>
+            <!-- card contain end -->
+        </div>
+        <!-- slide 2 -->
+        <div class="portfolio-main row align-items-center px-lg-5 px-sm-3 mx-lg-5 mx-sm-4 border ">
+            <!-- slider start -->
+            <div class="port-slider col-6 col-md-6 col-sm-12 ">
+                <div id="carouselExampleCaptions" class="carousel slide">
+                    <div class="carousel-indicators">
+                      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    </div>
+                    <div class="carousel-inner h-50">
+                      <div class="carousel-item active">
+                        <img src="./sec/c.png" class="d-block w-100 " alt="...">
+                        <div class="carousel-caption d-none d-md-block">
+                          <h5>First slide label</h5>
+                          <p>Some representative placeholder content for the first slide.</p>
+                        </div>
+                      </div>
+                      <div class="carousel-item">
+                        <img src="./sec/c.png" class="d-block w-100" alt="...">
+                        <div class="carousel-caption d-none d-md-block">
+                          <h5>Second slide label</h5>
+                          <p>Some representative placeholder content for the second slide.</p>
+                        </div>
+                      </div>
+                      <div class="carousel-item">
+                        <img src="./sec/c.png" class="d-block w-100" alt="...">
+                        <div class="carousel-caption d-none d-md-block">
+                          <h5>Third slide label</h5>
+                          <p>Some representative placeholder content for the third slide.</p>
+                        </div>
+                      </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div>
+            </div>
+            <!-- slider end -->
+
+            <!-- card contain start -->
+            <div class="prot-contain col-6 col-md-6 col-sm-12">
+                <div class="contain-heading"><h2>School Management Project<i class="fa-brands fa-google-scholar"></i><i class="fa-brands fa-grav"></i></h2></div>
+                <div class="contain-description">
+                    <p>
+                        A School Management Web Project provides a user-friendly interface for efficiently managing student, teacher, and staff information. It streamlines daily administrative tasks such as attendance tracking, fee management, and class scheduling. The project enhances communication between teachers, students, and parents through notifications and updates. It includes features like reporting, analytics, and data security, ensuring seamless and organized school operations.
+                    </p>
+                </div>
+                <div class="contain-list">
+                    <ul>
+                        <li>Student and Teacher Records Management: Easily add, update, and view student and teacher profiles.</li>
+                        <li>Attendance Tracking: Record and monitor daily attendance for students and staff.</li>
+                        <li>Fee Management: Track fee payments and generate invoices with ease.</li>
+                        <li>Class Scheduling: Organize and manage class timetables and academic schedules efficiently.</li>
+                        <li>Reporting and Analytics: Generate reports for academic performance, attendance, and financial statistics.</li>
+                    </ul>
+                </div>
+                <div class="contain-icons">
+                    <i class="fa-brands fa-react"></i>
+                    <i class="fa-brands fa-css3-alt"></i>
+                    <i class="fa-brands fa-html5"></i>
+                    <i class="fa-brands fa-python"></i>
+                </div>
             </div>
             <!-- card contain end -->
         </div>
     </section>
     <!-- portfolio section end -->
-  </main>
 
+    <!-- skill section start -->
+     <section>
+        <div class="d-flex row flex-wrap mt-5 justify-content-center w-75 m-auto  align-items-center ">
+            <!-- skills -->
+         <div class="skills col-md-6 col-sm-12">
+            
+            <div class="mt-5 p-1">
+                <h3>Expertise: </h3>
+                <div  class="d-flex flex-wrap justify-content-left align-items-center gap-2">
+                <p class="d-flex justify-content-center align-items-center  fs-5 btn btn-secondary btn-sm"><span>React</span><i class="fa-brands fa-react"></i></p>
+                <p class="d-flex justify-content-center align-items-center  fs-5 btn btn-secondary btn-sm"><span>React</span><i class="fa-brands fa-react"></i></p>
+                <p class="d-flex justify-content-center align-items-center  fs-5 btn btn-secondary btn-sm"><span>React</span><i class="fa-brands fa-react"></i></p>
+                <p class="d-flex justify-content-center align-items-center  fs-5 btn btn-secondary btn-sm"><span>React</span><i class="fa-brands fa-react"></i></p>
+                <p class="d-flex justify-content-center align-items-center  fs-5 btn btn-secondary btn-sm"><span>React</span><i class="fa-brands fa-react"></i></p>
+                <p class="d-flex justify-content-center align-items-center  fs-5 btn btn-secondary btn-sm"><span>React</span><i class="fa-brands fa-react"></i></p>
+                <p class="d-flex justify-content-center align-items-center  fs-5 btn btn-secondary btn-sm"><span>React</span><i class="fa-brands fa-react"></i></p>
+               </div>
+            </div>
+            <div class="mt-5 p-1">
+                <h3>Expertise: </h3>
+                <div  class="d-flex flex-wrap justify-content-left align-items-center gap-2">
+                <p class="d-flex justify-content-center align-items-center  fs-5 btn btn-secondary btn-sm"><span>React</span><i class="fa-brands fa-react"></i></p>
+                <p class="d-flex justify-content-center align-items-center  fs-5 btn btn-secondary btn-sm"><span>React</span><i class="fa-brands fa-react"></i></p>
+                <p class="d-flex justify-content-center align-items-center  fs-5 btn btn-secondary btn-sm"><span>React</span><i class="fa-brands fa-react"></i></p>
+                <p class="d-flex justify-content-center align-items-center  fs-5 btn btn-secondary btn-sm"><span>React</span><i class="fa-brands fa-react"></i></p>
+                <p class="d-flex justify-content-center align-items-center  fs-5 btn btn-secondary btn-sm"><span>React</span><i class="fa-brands fa-react"></i></p>
+                <p class="d-flex justify-content-center align-items-center  fs-5 btn btn-secondary btn-sm"><span>React</span><i class="fa-brands fa-react"></i></p>
+                <p class="d-flex justify-content-center align-items-center  fs-5 btn btn-secondary btn-sm"><span>React</span><i class="fa-brands fa-react"></i></p>
+               </div>
+            </div>
+            <div class="mt-5 p-1">
+                <h3>Expertise: </h3>
+                <div  class="d-flex flex-wrap justify-content-left align-items-center gap-2">
+                <p class="d-flex justify-content-center align-items-center  fs-5 btn btn-secondary btn-sm"><span>React</span><i class="fa-brands fa-react"></i></p>
+                <p class="d-flex justify-content-center align-items-center  fs-5 btn btn-secondary btn-sm"><span>React</span><i class="fa-brands fa-react"></i></p>
+                <p class="d-flex justify-content-center align-items-center  fs-5 btn btn-secondary btn-sm"><span>React</span><i class="fa-brands fa-react"></i></p>
+                <p class="d-flex justify-content-center align-items-center  fs-5 btn btn-secondary btn-sm"><span>React</span><i class="fa-brands fa-react"></i></p>
+                <p class="d-flex justify-content-center align-items-center  fs-5 btn btn-secondary btn-sm"><span>React</span><i class="fa-brands fa-react"></i></p>
+                <p class="d-flex justify-content-center align-items-center  fs-5 btn btn-secondary btn-sm"><span>React</span><i class="fa-brands fa-react"></i></p>
+                <p class="d-flex justify-content-center align-items-center  fs-5 btn btn-secondary btn-sm"><span>React</span><i class="fa-brands fa-react"></i></p>
+               </div>
+            </div>
+           
+         </div>
+        <!-- education -->
+         <div class="education col-md-6 col-sm-12">
+            <h1>My Education</h1>
+            <p>B.Sc in Software Engineering,<br>
+                Yunnan University ( Kunming,Yunnan,China )
+            </p>
+            <p>2013-2017</p>
+
+         </div>
+        </div>
+     </section>
+    <!-- skill section  end-->
+
+    <!-- contact section start -->
+     <section class=" mx-auto">
+        <div class="contact-me mt-5 p-5 ">
+            <h1 class="text-center">Contact Me!</h1>
+              <div class="border rounded-4 shadow-lg  w-25 mx-auto mt-4 p-5">
+                <div class="form-floating  mt-4">
+                    <textarea class="form-control bg-secondary" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+                    <label for="floatingTextarea">Comments</label>
+                    </div>
+                    <div class="form-floating  mt-4">
+                    <textarea class="form-control bg-secondary" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+                    <label for="floatingTextarea">Comments</label>
+                    </div>
+                    <div class="form-floating  mt-4">
+                        <textarea class="form-control bg-secondary" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                        <label for="floatingTextarea2">Comments</label>
+                </div>
+                <div class="d-grid gap-2 mt-4">
+                   
+                    <button class="btn btn-secondary" type="button">Button</button>
+                  </div>
+              </div>
+        </div>
+     </section>
+    <!-- contact section  end-->
+
+  </main>
+  <div class="card text-center ft rounded-0">
+    <hr>
+    <div class="card-body ft mt-5">
+      <h5 class="card-title">Special title treatment</h5>
+      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+      <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+   
+  </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
