@@ -26,14 +26,14 @@
           </a>
     
           <!-- Toggle Button -->
-          <button class="navbar-toggler nav-button" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+          <button class="navbar-toggler nav-button bg-info" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
     
           <!-- Navigation Section -->
           <div class="nav-menus collapse navbar-collapse" id="navbarContent">
             <ul class="navbar-nav ms-auto align-items-center">
-              <li class="nav-item">
+              <li class="nav-item ">
                 <a class="nav-link text-light" href="#">Home</a>
               </li>
               <li class="nav-item">
@@ -46,7 +46,7 @@
                 <a class="nav-link text-light" href="#">Resume</a>
               </li>
               <li class="nav-item d-flex align-items-center text-center">
-                <a href="https://docs.google.com/document/d/1DGNhcroEUEDdI2PLim9sb__dTbcsK1TxQPKfOo6C7Aw/edit?tab=t.0#heading=h.yig29dvnx55p" class="btn btn-primary ms-md-3">Download<i class="fa-solid fa-download fs-4"></i></a>
+                <a href="https://docs.google.com/document/d/1DGNhcroEUEDdI2PLim9sb__dTbcsK1TxQPKfOo6C7Aw/edit?tab=t.0#heading=h.yig29dvnx55p" class="btn btn-info ms-md-3">Download<i class="fa-solid fa-download fs-4 text-danger"></i></a>
               </li>
             </ul>
           </div>
@@ -73,12 +73,11 @@
                 <a href="#"><i class="fa-brands fa-github fs-4"></i></a>
                 <a href="#"><i class="fa-brands fa-linkedin fs-4"></i></a>
                 <a href="#"><i class="fa-brands fa-facebook fs-4"></i></a>
-                <div class="btn d-flex align-items-center bg-primary">
-                    <a href="#" class="fs-4">
+                <div class="btn btn-info text-light d-flex align-items-center ">
+                    <a href="#" class="fs-5 text-dark">
                         Download
                     </a>
-                    <i class="fa-solid fa-download fs-4">
-                    </i>
+                    <i class="fa-solid fa-download fs-4 text-danger"></i>
                 </div>
             </div>
         </div>
@@ -89,60 +88,63 @@
      </div>
     <!-- hero section  end--> 
     </section>
-    <!-- portfolio section  start-->
+<!-- project section  start-->
     <section class="w-75 mx-auto">
-        <h2 class="align-items-center text-center p-5 mt-2 mb-4 ">Projects</h2>
-        <!-- slide 1 -->
+        <h2 class="align-items-center text-center p-5 mt-2 mb-4">Projects</h2>
+        <!-- Slide 1 -->
         <div class="portfolio-main row align-items-center px-lg-5 px-sm-3 mx-lg-5 mx-sm-4 border mb-4">
-            <!-- slider start -->
-            <div class="port-slider col-6 col-md-6 col-sm-12 ">
-                <div id="carouselExampleCaptions" class="carousel slide">
+            
+            <!-- Slider Start -->
+            <div class="port-slider col-12 col-md-6">
+                <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-indicators">
-                      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
                     </div>
-                    <div class="carousel-inner h-50">
-                      <div class="carousel-item active">
-                        <img src="./sec/c.png" class="d-block w-100 " alt="...">
-                        <div class="carousel-caption d-none d-md-block">
-                          <h5>First slide label</h5>
-                          <p>Some representative placeholder content for the first slide.</p>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="./sec/c.png" class="d-block w-100" alt="Slide 1">
+                            <div class="carousel-caption d-none d-md-block">
+                                <!-- <h5>First Slide Label</h5>
+                                <p>Some representative placeholder content for the first slide.</p> -->
+                            </div>
                         </div>
-                      </div>
-                      <div class="carousel-item">
-                        <img src="./sec/c.png" class="d-block w-100" alt="...">
-                        <div class="carousel-caption d-none d-md-block">
-                          <h5>Second slide label</h5>
-                          <p>Some representative placeholder content for the second slide.</p>
+                        <div class="carousel-item">
+                            <img src="./sec/p2.png" class="d-block w-100" alt="Slide 2">
+                            <div class="carousel-caption d-none d-md-block">
+                                <!-- <h5>Second Slide Label</h5>
+                                <p>Some representative placeholder content for the second slide.</p> -->
+                            </div>
                         </div>
-                      </div>
-                      <div class="carousel-item">
-                        <img src="./sec/c.png" class="d-block w-100" alt="...">
-                        <div class="carousel-caption d-none d-md-block">
-                          <h5>Third slide label</h5>
-                          <p>Some representative placeholder content for the third slide.</p>
+                        <div class="carousel-item">
+                            <img src="./sec/p3.png" class="d-block w-100" alt="Slide 3">
+                            <div class="carousel-caption d-none d-md-block">
+                                <!-- <h5>Third Slide Label</h5>
+                                <p>Some representative placeholder content for the third slide.</p> -->
+                            </div>
                         </div>
-                      </div>
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                      <span class="visually-hidden">Previous</span>
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
                     </button>
                     <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                      <span class="visually-hidden">Next</span>
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
                     </button>
-                  </div>
+                </div>
             </div>
-            <!-- slider end -->
-
-            <!-- card contain start -->
-            <div class="prot-contain col-6 col-md-6 col-sm-12">
-                <div class="contain-heading"><h2>School Management Project<i class="fa-brands fa-google-scholar"></i><i class="fa-brands fa-grav"></i></h2></div>
+            <!-- Slider End -->
+    
+            <!-- Card Contain Start -->
+            <div class="prot-contain col-12 col-md-6">
+                <div class="contain-heading">
+                    <h2>School Management Project<i class="fa-brands fa-google-scholar"></i><i class="fa-brands fa-grav"></i></h2>
+                </div>
                 <div class="contain-description">
                     <p>
-                        A School Management Web Project provides a user-friendly interface for efficiently managing student, teacher, and staff information. It streamlines daily administrative tasks such as attendance tracking, fee management, and class scheduling. The project enhances communication between teachers, students, and parents through notifications and updates. It includes features like reporting, analytics, and data security, ensuring seamless and organized school operations.
+                        A School Management Web Project provides a user-friendly interface for efficiently managing student, teacher, and staff information. It streamlines daily administrative tasks such as attendance tracking, fee management, and class scheduling. It includes features like reporting, analytics, and organized school operations.
                     </p>
                 </div>
                 <div class="contain-list">
@@ -150,98 +152,88 @@
                         <li>Student and Teacher Records Management: Easily add, update, and view student and teacher profiles.</li>
                         <li>Attendance Tracking: Record and monitor daily attendance for students and staff.</li>
                         <li>Fee Management: Track fee payments and generate invoices with ease.</li>
-                        <li>Class Scheduling: Organize and manage class timetables and academic schedules efficiently.</li>
                         <li>Reporting and Analytics: Generate reports for academic performance, attendance, and financial statistics.</li>
                     </ul>
                 </div>
                 <div class="contain-icons">
-                    <i class="fa-brands fa-react"></i>
-                    <i class="fa-brands fa-css3-alt"></i>
-                    <i class="fa-brands fa-html5"></i>
-                    <i class="fa-brands fa-python"></i>
+                    <i class="fa-brands fa-react fs-4"></i>
+                    <i class="fa-brands fa-css3-alt fs-4"></i>
+                    <i class="fa-brands fa-html5 fs-4"></i>
+                    <i class="fa-brands fa-python fs-4"></i>
                 </div>
             </div>
-            <!-- card contain end -->
-        </div>
-        <!-- slide 2 -->
-        <div class="portfolio-main row align-items-center px-lg-5 px-sm-3 mx-lg-5 mx-sm-4 border ">
-            <!-- slider start -->
-            <div class="port-slider col-6 col-md-6 col-sm-12 ">
-                <div id="carouselExampleCaptions" class="carousel slide">
-                    <div class="carousel-indicators">
-                      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                    </div>
-                    <div class="carousel-inner h-50">
-                      <div class="carousel-item active">
-                        <img src="./sec/c.png" class="d-block w-100 " alt="...">
-                        <div class="carousel-caption d-none d-md-block">
-                          <h5>First slide label</h5>
-                          <p>Some representative placeholder content for the first slide.</p>
-                        </div>
-                      </div>
-                      <div class="carousel-item">
-                        <img src="./sec/c.png" class="d-block w-100" alt="...">
-                        <div class="carousel-caption d-none d-md-block">
-                          <h5>Second slide label</h5>
-                          <p>Some representative placeholder content for the second slide.</p>
-                        </div>
-                      </div>
-                      <div class="carousel-item">
-                        <img src="./sec/c.png" class="d-block w-100" alt="...">
-                        <div class="carousel-caption d-none d-md-block">
-                          <h5>Third slide label</h5>
-                          <p>Some representative placeholder content for the third slide.</p>
-                        </div>
-                      </div>
-                    </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                      <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                      <span class="visually-hidden">Next</span>
-                    </button>
-                  </div>
-            </div>
-            <!-- slider end -->
-
-            <!-- card contain start -->
-            <div class="prot-contain col-6 col-md-6 col-sm-12">
-                <div class="contain-heading"><h2>School Management Project<i class="fa-brands fa-google-scholar"></i><i class="fa-brands fa-grav"></i></h2></div>
-                <div class="contain-description">
-                    <p>
-                        A School Management Web Project provides a user-friendly interface for efficiently managing student, teacher, and staff information. It streamlines daily administrative tasks such as attendance tracking, fee management, and class scheduling. The project enhances communication between teachers, students, and parents through notifications and updates. It includes features like reporting, analytics, and data security, ensuring seamless and organized school operations.
-                    </p>
-                </div>
-                <div class="contain-list">
-                    <ul>
-                        <li>Student and Teacher Records Management: Easily add, update, and view student and teacher profiles.</li>
-                        <li>Attendance Tracking: Record and monitor daily attendance for students and staff.</li>
-                        <li>Fee Management: Track fee payments and generate invoices with ease.</li>
-                        <li>Class Scheduling: Organize and manage class timetables and academic schedules efficiently.</li>
-                        <li>Reporting and Analytics: Generate reports for academic performance, attendance, and financial statistics.</li>
-                    </ul>
-                </div>
-                <div class="contain-icons">
-                    <i class="fa-brands fa-react"></i>
-                    <i class="fa-brands fa-css3-alt"></i>
-                    <i class="fa-brands fa-html5"></i>
-                    <i class="fa-brands fa-python"></i>
-                </div>
-            </div>
-            <!-- card contain end -->
+            <!-- Card Contain End -->
+            
         </div>
     </section>
-    <!-- portfolio section end -->
+    <section class="w-75 mx-auto">
+        <!-- Section 2 -->
+    <div class="portfolio-main row align-items-center px-lg-5 px-sm-3 mx-lg-5 mx-sm-4 border mb-4">
+        <!-- Slider Start -->
+        <div class="port-slider col-12 col-md-6">
+          <div id="carouselExampleCaptions2" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselExampleCaptions2" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carouselExampleCaptions2" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#carouselExampleCaptions2" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="./sec/hotel-1.jpg" class="d-block w-100" alt="Slide 1">
+              </div>
+              <div class="carousel-item">
+                <img src="./sec/hotel-1.jpg" class="d-block w-100" alt="Slide 2">
+              </div>
+              <div class="carousel-item">
+                <img src="./sec/hotel-1.jpg" class="d-block w-100" alt="Slide 3">
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions2" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions2" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div>
+        <!-- contain  -->
+        <div class="prot-contain col-12 col-md-6">
+            <div class="contain-heading">
+                <h2>Hotel Management Project<i class="fa-brands fa-google-scholar"></i><i class="fa-brands fa-grav"></i></h2>
+            </div>
+            <div class="contain-description">
+                <p>
+                    A Hotel Management Web Project provides a user-friendly interface for efficiently managing hotel operations, including reservations, guest check-ins/outs, room management, and staff coordination. It streamlines daily administrative tasks such as booking management, payment tracking, and customer service. The system includes features for generating reports, managing room availability, and enhancing overall operational efficiency. 
+                </p>
+            </div>
+            <div class="contain-list">
+                <ul>
+                    <li>Reservation Management: Easily book, update, and view guest reservations for rooms.</li>
+                    <li>Check-in and Check-out: Simplify guest check-ins and check-outs, ensuring smooth transitions and accurate records.</li>
+                    <li>Room Management: Monitor room availability, housekeeping schedules, and room status (e.g., available, occupied, under maintenance).</li>
+                    <li>Payment Tracking: Track guest payments, generate invoices, and manage financial transactions.</li>
+                </ul>
+            </div>
+            <div class="contain-icons">
+                <i class="fa-brands fa-react fs-4"></i>
+                <i class="fa-brands fa-css3-alt fs-4"></i>
+                <i class="fa-brands fa-html5 fs-4"></i>
+                <i class="fa-brands fa-python fs-4"></i>
+            </div>
+        </div>
+        <!-- Slider End -->
+    </section>
+    <!-- project section end -->
 
-    <!-- skill section start -->
+<!-- skill section start -->
+     <section>
+          <!-- skill section start -->
      <section>
         <div class="d-flex row flex-wrap mt-5 justify-content-center w-75 m-auto  align-items-center ">
             <!-- skills -->
-         <div class="skills col-md-6 col-sm-12">
+         <div class="skills col-md-6 col-lg-6 col-sm-12">
             
             <div class="mt-5 p-1">
                 <h3>Expertise: </h3>
@@ -282,7 +274,7 @@
            
          </div>
         <!-- education -->
-         <div class="education col-md-6 col-sm-12">
+         <div class="education col-lg-6 col-md-6 col-sm-12 text-center">
             <h1>My Education</h1>
             <p>B.Sc in Software Engineering,<br>
                 Yunnan University ( Kunming,Yunnan,China )
@@ -293,43 +285,55 @@
         </div>
      </section>
     <!-- skill section  end-->
-
-    <!-- contact section start -->
-     <section class=" mx-auto">
-        <div class="contact-me mt-5 p-5 ">
-            <h1 class="text-center">Contact Me!</h1>
-              <div class="border rounded-4 shadow-lg  w-25 mx-auto mt-4 p-5">
-                <div class="form-floating  mt-4">
-                    <textarea class="form-control bg-secondary" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
-                    <label for="floatingTextarea">Comments</label>
-                    </div>
-                    <div class="form-floating  mt-4">
-                    <textarea class="form-control bg-secondary" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
-                    <label for="floatingTextarea">Comments</label>
-                    </div>
-                    <div class="form-floating  mt-4">
-                        <textarea class="form-control bg-secondary" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
-                        <label for="floatingTextarea2">Comments</label>
-                </div>
-                <div class="d-grid gap-2 mt-4">
-                   
-                    <button class="btn btn-secondary" type="button">Button</button>
-                  </div>
-              </div>
-        </div>
      </section>
-    <!-- contact section  end-->
+     <!-- skill section end -->
+
+<!-- Contact Section Start -->
+    <section class="mx-auto">
+    <div class="contact-me mt-5 p-5">
+      <h1 class="text-center">Contact Me!</h1>
+      <div class="border rounded-4 shadow-lg mx-auto mt-4 p-5" style="max-width: 600px;">
+        <form>
+          <!-- Name Field -->
+          <div class="form-floating mt-4">
+            <textarea class="form-control bg-secondary text-white" placeholder="Your Name" id="floatingTextarea1"></textarea>
+            <label for="floatingTextarea1">Your Name</label>
+          </div>
+          <!-- Email Field -->
+          <div class="form-floating mt-4">
+            <textarea class="form-control bg-secondary text-white" placeholder="Your Email" id="floatingTextarea2"></textarea>
+            <label for="floatingTextarea2">Your Email</label>
+          </div>
+          <!-- Message Field -->
+          <div class="form-floating mt-4">
+            <textarea class="form-control bg-secondary text-white" placeholder="Your Message" id="floatingTextarea3" style="height: 120px;"></textarea>
+            <label for="floatingTextarea3">Your Message</label>
+          </div>
+          <!-- Submit Button -->
+          <div class="d-grid gap-2 mt-4">
+            <button class="btn btn-secondary" type="submit">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    </section>
+  <!-- Contact Section End -->
 
   </main>
-  <div class="card text-center ft rounded-0">
+  <footer>
+    <div class="card text-center ft rounded-0">
     <hr>
     <div class="card-body ft mt-5">
-      <h5 class="card-title">Special title treatment</h5>
-      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
+      <h5 class="card-title">Empowering Your Digital Journey</h5>
+      <p class="card-text">© 2024 ABC Company. All Rights Reserved. Powered by Innovation. <br>Connect with Us : +8801762395226 / +8801611775630</p>
+      <a href="#" class="btn "><i class="fa-brands fa-github fs-4"></i></a>
+      <a href="#" class="btn "><i class="fa-brands fa-linkedin fs-4"></i></a>
+      <a href="#" class="btn "><i class="fa-brands fa-facebook fs-4"></i></a>
+
     </div>
    
   </div>
+  </footer>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
