@@ -1,8 +1,8 @@
 const array = [
     {id: 1 , name:'Iphone' , description: "this is Iphone " , price: 200 , color : "golden"},
-    {id: 2 , name:'Xiaomi' , description: "this is Xiaomi " , price: 200 , color : "black"},
+    {id: 2 , name:'Xiaomi' , description: "this is Xiaomi " , price: 200 , color : "navy"},
     {id: 3 , name:'Iphone' , description: "this is Iphone " , price: 300 , color : "golden"},
-    {id: 4 , name:'Samsumg' , description: "this is samsumg " , price: 400 , color : "golden"},
+    {id: 4 , name:'Samsumg' , description: "this is samsumg " , price: 400 , color : "golden iris"},
     {id: 5 , name:'Iphone' , description: "this is Iphone " , price: 200 , color : "black diamond"},
 ]
 
