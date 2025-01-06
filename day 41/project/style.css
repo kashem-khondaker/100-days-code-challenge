@@ -7,9 +7,20 @@
   gap: 20px;
 }
 .data-container {
-  width: 400px;
-  height: 200px;
   padding: 10px;
   border-radius: 10px;
   box-shadow: 2px 2px 4px rgb(42, 0, 254);
+}
+.data-container img {
+  width: 100%;
+  height: 350px;
+}
+.cart-container {
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 4px rgb(42, 0, 254);
+}
+.img{
+  width: auto;
+  height: 150px;
 }

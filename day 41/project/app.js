@@ -1,4 +1,4 @@
-fetch("https://jsonplaceholder.typicode.com/users")
+fetch("https://fakestoreapi.com/products")
   .then((response) => response.json())
   .then((data) => {
     // aikane ami data pabo
@@ -10,31 +10,40 @@ fetch("https://jsonplaceholder.typicode.com/users")
   });
 
 const displayData = (data) => {
-  for (const element of data) {
-    // console.log(data);
-    // console.log(element.company.name);
-    // console.log(element);
-
-    const container = document.getElementById("user-data-container");
-    // console.log(container);
-  }
-
   //   alternative
-  data.forEach((element) => {
-    // console.log(element);
+  data.forEach((data) => {
+    // console.log(data);
     const container = document.getElementById("user-data-container");
     const div = document.createElement("div");
     div.classList.add("data-container");
-    div.innerHTML = `
-    
-    <img src="${element.name}" alt="${element.name}">
-    <h1>${element.name}</h1>
-    <p>${element.email}</p>
-    <p>${element.address}</p>
-    <button>${element.address.street}</button>
-    
+
+    const div2 = document.createElement("div");
+    div2.classList.add("img-container");
+    div2.innerHTML = `
+    <img class="img" src="${data.image}" alt="${data.title.slice(0, 5)}">
     `;
-    console.log(div);
+
+    const div3 = document.createElement("div");
+    div3.classList.add("cart-info");
+    div3.innerHTML = `
+    <h1>${data.title}</h1>
+    <p>${data.email}</p>
+    <p> price : ${data.price}</p>
+    <p>${data.category}</p>
+    <button>details</button>
+    <button>add to cart</button>
+    `;
+
+    const cart_div = document.createElement("div");
+    cart_div.classList.add("cart-container");
+    cart_div.innerHTML = `
+    <p>add to cart</p>
+    <button></button>
+    `;
+
+    div.appendChild(div2);
+    div.appendChild(div3);
     container.appendChild(div);
+    container.appendChild(cart_div);
   });
 };
