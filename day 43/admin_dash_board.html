@@ -6,6 +6,7 @@
     <title>Document</title>
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
+
   <body class="bg-gray-50 max-w-[1550px] mx-auto p-6">
     <!-- header section  start-->
     <header class="mb-8">
@@ -45,14 +46,15 @@
     <main>
       <!-- task management  start-->
       <!-- for grid  -->
-      <div class="grid grid-cols-4 gap-6">
+      <div class="grid grid-cols-4 gap-6 mb-8">
         <!-- for cart  -->
+
         <!-- cart 1 -->
         <div class="bg-white rounded-xl p-6 shadow-sm">
           <h2 class="text-sm font-medium text-gray-500 mb-4">TOTAL TASK</h2>
           <div class="flex justify-between items-center">
             <div>
-              <p class="text-3xl font-semibold mb-3">3</p>
+              <p class="text-3xl font-semibold mb-3">5</p>
               <p class="text-gray-500 text-sm">11 last month</p>
             </div>
             <div class="bg-blue-100 p-2 rounded-full">
@@ -103,10 +105,12 @@
 
         <!--TASK IN IMPROVE cart - 3  -->
         <div class="bg-white rounded-xl p-6 shadow-sm">
-          <h2 class="text-sm font-medium text-gray-500 mb-4">TASK IN IMPROVE</h2>
+          <h2 class="text-sm font-medium text-gray-500 mb-4">
+            TASK IN IMPROVE
+          </h2>
           <div class="flex justify-between items-center">
             <div>
-              <p class="text-3xl font-semibold mb-3">3</p>
+              <p class="text-3xl font-semibold mb-3">7</p>
               <p class="text-gray-500 text-sm">11 last month</p>
             </div>
             <div class="bg-yellow-100 p-2 rounded-full">
@@ -133,7 +137,7 @@
           <h2 class="text-sm font-medium text-gray-500 mb-4">TODOS</h2>
           <div class="flex justify-between items-center">
             <div>
-              <p class="text-3xl font-semibold mb-3">3</p>
+              <p class="text-3xl font-semibold mb-3">0</p>
               <p class="text-gray-500 text-sm">11 last month</p>
             </div>
             <div class="bg-purple-100 p-2 rounded-full">
@@ -159,6 +163,47 @@
       </div>
 
       <!-- task management  end-->
+
+      <!--task table start  -->
+      <div class="bg-white rounded-xl shadow-sm">
+        <div
+          class="grid grid-cols-4 p-4 border-b border-gray-100 text-sm text-gray-500"
+        >
+          <div>TASK TITLE</div>
+          <div>PRIORITY</div>
+          <div>TEAM</div>
+          <div>CREATED AT</div>
+        </div>
+
+        <!-- task items start -->
+        <div class="divider-y divide-gray-500">
+          <div class="grid grid-cols-4 bg-white rounded-xl shadow-sm">
+            <div class="flex items-center gap-2">
+              <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+              <div>
+                <span>Test Low Task</span>
+              </div>
+            </div>
+            <!-- priority  -->
+            <!-- <div>
+                <span class="px-3 py-2 rounded-full bg-blue-50 text-blue-600 text-sm">Low</span>
+            </div>
+            <div class="flex -space-x-2">
+                <div class="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center text-sm text-white border-2 border-white">
+                    CA
+                </div>
+                <div class="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center text-sm text-white border-2 border-white">
+                    CA
+                </div>
+                <div class="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center text-sm text-white border-2 border-white">
+                    CA
+                </div>
+            </div> -->
+          </div>
+        </div>
+        <!-- task items end -->
+      </div>
+      <!-- table end  -->
     </main>
   </body>
 </html>
