@@ -28,7 +28,7 @@ img{
 li{
     list-style: none;
     font-size: 20px;
-    color: white;
+    color: aqua;
 }
 .header-1{
     background-image: url(/images/2150061984.jpg);
@@ -40,37 +40,41 @@ li:hover{
     color: rgb(255, 0, 55);
 }
 .nav-image-section{
+    border: 1px solid red;
     display: flex;
+    justify-content: space-between;
     text-align: center;
     align-items: center;
-    justify-content: space-between;
     margin: auto;
     padding: 10px 200px;
     
 }
 .nav-image-contain{
-    width: 40%;
-    height: 400px;
+    border: 1px solid red;
+    width: auto;
+    height: auto;
     flex: 1;
     line-height: 1.2rem;
     padding: auto;
     text-align: center;
     align-items: center;
 }
-
+.hero-img{
+    width: 500px;
+}
+.nav-images{
+    border: 1px solid red;
+    width:400px;
+    flex: 1;
+}
+/* 
 .company-name{
     font-weight: 200px;
     color:aqua;
     margin: 10px 0px;
 }
-.nav-images{
-    width:400px;
-    flex: 1;
-    height: ;
-}
-.hero-img{
-    width: 500px;
-}
+
+
 button{
     margin-top: 20px;
     text-align: center;
@@ -127,11 +131,11 @@ button{
     font-size: 1.2rem;
     border-radius: 40px;
     box-shadow: 2px 2px 4px black;
-}
+} */
 
-div{
+/* div{
     border: 1px solid red;
-}
+} */
 
 
 

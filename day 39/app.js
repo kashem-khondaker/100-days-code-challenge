@@ -52,6 +52,7 @@ const displayData = (userData) => {
   userData.forEach((element) => {
     // console.log(element);
     const div = document.createElement("div");
+    div.className = "details-card"
     div.innerHTML = `
         <h4>title</h4>
         <p>Description</p>

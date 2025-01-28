@@ -8,6 +8,7 @@ img{
 
 
 nav{
+    /* border: 1px solid red; */
     position: sticky;
     top: 0;
     display: flex;
@@ -34,17 +35,17 @@ li:hover{
 }
 
 .section-for-image-and-contain{
-    /* border: 1px solid aqua; */
+    /* border: 1px solid red; */
     display: flex;
     justify-content: space-around;
     align-items: center;
-    height: 92vh;
+    height: 100vh;
     width: 100%;
-    margin: auto;
+    /* margin: 100px 0px; */
     
 }
 .nav-button:hover{
-    color: rgb(255, 0, 0);
+    /* color: rgb(255, 0, 0); */
     cursor: pointer;
     transform: scale(1.05);
     
@@ -58,7 +59,7 @@ li:hover{
     background-color: #0E1217;
     color: aqua;
     border-radius: 30px;
-    box-shadow: 2px 2px 4px white;
+    box-shadow: 2px 2px 4px rgba(255, 255, 255, 0.417);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -77,7 +78,10 @@ p{
     line-height: 1.5;
     font-weight: 500;
     padding: 20px;
-    /* border: 1px solid black ; */
+    /* box-sizing: border-box; */
+    box-shadow: 4px 4px 4px white;
+    border-radius: 40px;
+    border: 1px solid rgba(0, 255, 255, 0.63);
 }
 .contain-section-name{
     color: aqua;
@@ -95,8 +99,9 @@ body{
 
 
 .service-container{
-    height: 100vh;
-    /* border: 1px solid white; */
+    height: auto;
+    /* border: 1px solid red; */
+    padding-bottom: 100px;
     /* background: linear-gradient(45deg, #071317,  #070005 ); */
 }
 .service-title{
@@ -117,7 +122,7 @@ body{
     width: 300px;
     height: auto;
     padding: 20px 5px;
-    border: 1px solid aqua;
+    border: 1px solid rgba(0, 255, 255, 0.587);
     border-radius: 20px;
     box-shadow: 0px 0px 6px aqua;
     font-size: 1.2rem;
@@ -163,6 +168,8 @@ body{
 
 .footer-child-div{
     /* border: 1px solid red; */
+    /* margin-top: 30px; */
+    padding: 0px 30px;
     height: auto;
     padding: 20px 0px;
     display: flex;

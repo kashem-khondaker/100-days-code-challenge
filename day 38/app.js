@@ -13,12 +13,27 @@
 //     }
 // }
 
-document.getElementById("btn").addEventListener
-("click" , (event)=>{
-console.log('hello world in console ...');
+document.getElementById("btn").addEventListener("click", (e) => {
+  const input_value = document.getElementById("input-handle").value;
+  console.log(input_value);
+
+  const container = document.getElementById("container");
+  const p = document.createElement("p");
+  p.classList.add("child");
+  p.innerText = input_value;
+
+  container.appendChild(p);
+
+  const allcomments = document.getElementsByClassName("child");
+
+  for (const element of allcomments) {
+    element.addEventListener("click", (e) => {
+      // console.log(e.target);
+      e.target.parentNode.removeChild(element);
+    });
+  }
 });
 
-// const onclick_function = (event)=>{
-//     console.log('hello world in console ...');
-// }
-
+// const handleSearch = () => {
+//   console.log("hello dom tom ...");
+// };

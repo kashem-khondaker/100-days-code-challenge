@@ -41,7 +41,7 @@ def populate_db():
             status=random.choice(['PENDING', 'IN_PROGRESS', 'COMPLETED']),
             is_completed=random.choice([True, False])
         )
-        task.assigned_to.set(random.sample(employees, random.randint(1, 3)))
+        task.employee.set(random.sample(employees, random.randint(1, 3)))
         tasks.append(task)
     print(f"Created {len(tasks)} tasks.")
 
@@ -49,8 +49,8 @@ def populate_db():
     for task in tasks:
         taskDetails.objects.create(
             task=task,
-            assigned_to=", ".join(
-                [emp.name for emp in task.assigned_to.all()]),
+            assign_to=", ".join(
+                [emp.name for emp in task.employee.all()]),
             priority=random.choice(['High', 'Medium', 'Low']),
             notes=fake.paragraph()
         )

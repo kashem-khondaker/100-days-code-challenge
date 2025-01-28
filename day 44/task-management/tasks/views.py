@@ -32,25 +32,11 @@ def create_task(request):
             form.save()
             return render(request , 'dashboard/task_form.html' , {"form": form , "message": "task added successfully!"} )
 
-            ''' this is form '''
-            # data = form.cleaned_data
-            # title = data.get('title')
-            # description = data.get('description')
-            # due_date = data.get('due_date')
-            # employee = data.get('employee')
-            # # print(data)
-
-            # task = Task.objects.create(
-            #     title = title,
-            #     description = description,
-            #     due_date = due_date,
-            # )
-            
-            # # assign employee 
-            # for emp_id in employee:
-            #     get_emp = Employee.objects.get(id = emp_id)
-            #     task.employee.add(get_emp)
-            # return HttpResponse("Task added successfully!")
     
     context = {'form':form}
     return render(request , "dashboard/task_form.html" , context)
+
+def view_task(request):
+    tasks = Task.objects.all()
+    task2 = Task.objects.first()
+    return render(request , 'view_task.html' , {'tasks':tasks , 'task_2': task2})

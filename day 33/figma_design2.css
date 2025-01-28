@@ -1,0 +1,113 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+body{
+    font-family: Arial, sans-serif;
+    background: #1f403f;
+    color:white
+}
+button{
+    background-color: #1f403f;
+    width: 150px;
+    height: auto;
+    color: red;
+    padding: 10px ;
+    border-radius: 20px;
+    box-sizing: border-box;
+    box-shadow: 2px 2px 4px black;
+}
+.logo-image{
+    width: 70px;
+}
+.nav-parent-div{
+    border: 1px solid black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    padding: 0px 250px;
+    /* background: linear-gradient(40deg , #1f403f9d ,#151f2e, #1f403f , rgba(127, 255, 212, 0.595) ,#23514f  ); */
+    /* background-image: url(/images/supawork-image-20241211T130534456Z.png.png); */
+    background-color: #172833;
+}
+.nav-home-section{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    gap: 50px;
+}
+.nav-home-section li{
+    list-style: none;
+}
+.nav-home-section li:hover{
+    cursor: pointer;
+    color: aqua;
+}
+.hero-section{
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+    padding: 100px 200px;
+}
+.hero-section-contain{
+    margin-top: 20px;
+    /* border: 1px solid red; */
+    height: auto;
+    width: 50%;
+    align-items: center;
+    text-align: left;
+}
+.hero-section-contain div{
+    padding: 20px 0px;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+.brand-logo{
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 20px;
+}
+.brand-logo img{
+    width: 100px;
+}
+.service-section-containt{
+    /* border: 1px solid red; */
+    padding: 20px;
+    align-items: center;
+    text-align: center;
+    line-height: 2.5rem;
+}
+.card-div{
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    padding: 50px 50px;
+}
+.card-controler{
+    border: 1px solid aqua;
+    border-radius: 20px;
+    align-items: center;
+    text-align: center;
+    box-sizing: border-box;
+    width: 250px;
+    height: 300px;
+    box-shadow: 2px 2px 4px black;
+}
+.card-controler img{
+    width: 100px;
+    justify-content: space-around;
+    align-items: center;
+}
+.card-text{
+    /* border: 1px solid red; */
+    margin: 20px 0px;
+    padding: 10px;
+    line-height:auto;
+}

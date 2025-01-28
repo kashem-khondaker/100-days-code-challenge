@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path
-from tasks.views import manager_dashboard , user_dashboard ,test , create_task
+from tasks.views import manager_dashboard , user_dashboard ,test , create_task ,view_task
 
 
 urlpatterns = [
@@ -8,5 +8,6 @@ urlpatterns = [
     path('manager_dashboard/',manager_dashboard),
     path('user-dashboard/' ,user_dashboard),
     path('test/' , test),
-    path('task-html/' , create_task)
+    path('task-html/' , create_task),
+    path('view_task/',view_task)
 ]
