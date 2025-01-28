@@ -1,0 +1,5 @@
+task_env/
+db.sqlite3/
+package-lock.json/
+__pycache__/
+node_modules/

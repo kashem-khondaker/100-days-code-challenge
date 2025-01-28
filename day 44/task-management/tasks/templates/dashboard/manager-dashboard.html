@@ -1,0 +1,132 @@
+{% extends "dashboard/dashboard.html" %}
+{% block title %}manager-dashboard{% endblock title %}
+{% block tasks %}
+<div class="bg-white rounded-xl shadow-sm">
+    <div
+      class="grid grid-cols-4 border-b p-4 border-gray-100 text-sm text-gray-500"
+    >
+      <div>TASK TITLE</div>
+      <div>PRIORITY</div>
+      <div>TEAM</div>
+      <div>CREATED AT</div>
+    </div>
+    <!-- Task items wrapper -->
+    <div class="divide-y divide-gray-100">
+      <!-- Change: Added correct wrapper -->
+      <!-- Task 1 -->
+      <div class="grid grid-cols-4 items-center p-4">
+        <!-- Change: Added padding -->
+        <div>
+          <div class="flex items-center gap-2 py-2">
+            <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+            <div><span>Test Low task</span></div>
+          </div>
+        </div>
+        <div>
+          <span
+            class="bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-sm"
+            >Low</span
+          >
+        </div>
+        <div>
+          <div class="flex -space-x-2">
+            <div
+              class="w-8 h-8 bg-blue-500 text-white text-sm rounded-full flex items-center justify-center border-2 border-white"
+            >
+              CA
+            </div>
+            <div
+              class="w-8 h-8 bg-yellow-500 text-white text-sm rounded-full flex items-center justify-center border-2 border-white"
+            >
+              JB
+            </div>
+            <div
+              class="w-8 h-8 bg-green-500 text-white text-sm rounded-full flex items-center justify-center border-2 border-white"
+            >
+              SK
+            </div>
+          </div>
+        </div>
+        <div>
+          <span class="text-gray-500">9 months ago</span>
+        </div>
+      </div>
+      <div class="grid grid-cols-4 items-center p-4">
+        <!-- Change: Added padding -->
+        <div>
+          <div class="flex items-center gap-2 py-2">
+            <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+            <div><span>Test Low task</span></div>
+          </div>
+        </div>
+        <div>
+          <span
+            class="bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-sm"
+            >Low</span
+          >
+        </div>
+        <div>
+          <div class="flex -space-x-2">
+            <div
+              class="w-8 h-8 bg-blue-500 text-white text-sm rounded-full flex items-center justify-center border-2 border-white"
+            >
+              CA
+            </div>
+            <div
+              class="w-8 h-8 bg-yellow-500 text-white text-sm rounded-full flex items-center justify-center border-2 border-white"
+            >
+              JB
+            </div>
+            <div
+              class="w-8 h-8 bg-green-500 text-white text-sm rounded-full flex items-center justify-center border-2 border-white"
+            >
+              SK
+            </div>
+          </div>
+        </div>
+        <div>
+          <span class="text-gray-500">9 months ago</span>
+        </div>
+      </div>
+      <div class="grid grid-cols-4 items-center p-4">
+        <!-- Change: Added padding -->
+        <div>
+          <div class="flex items-center gap-2 py-2">
+            <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+            <div><span>Test Low task</span></div>
+          </div>
+        </div>
+        <div>
+          <span
+            class="bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-sm"
+            >Low</span
+          >
+        </div>
+        <div>
+          <div class="flex -space-x-2">
+            <div
+              class="w-8 h-8 bg-blue-500 text-white text-sm rounded-full flex items-center justify-center border-2 border-white"
+            >
+              CA
+            </div>
+            <div
+              class="w-8 h-8 bg-yellow-500 text-white text-sm rounded-full flex items-center justify-center border-2 border-white"
+            >
+              JB
+            </div>
+            <div
+              class="w-8 h-8 bg-green-500 text-white text-sm rounded-full flex items-center justify-center border-2 border-white"
+            >
+              SK
+            </div>
+          </div>
+        </div>
+        <div>
+          <span class="text-gray-500">9 months ago</span>
+        </div>
+      </div>
+      <!-- Add more tasks here -->
+    </div>
+  </div>
+
+  {% endblock tasks %}
