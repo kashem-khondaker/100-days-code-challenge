@@ -1,22 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Task List</title>
+    {% comment %} <script src="https://unpkg.com/@tailwindcss/browser@4"></script> {% endcomment %}
 </head>
 <body>
+     {% comment %} <h1 class="bg-white text-black text-center font-extrabold mt-20">Task List</h1>
+    <table border="1" class="border p-2 bg-gray-100 mx-auto mt-10 shadow-lg m-4">
+        <tr class="border p-2 bg-gray-100 ">
+            <th class="border p-2 bg-gray-100 ">Title</th>
+            <th class="border p-2 bg-gray-100 ">Description</th>
+            <th class="border p-2 bg-gray-100 ">Status</th>
+            <th class="border p-2 bg-gray-100 ">Due Date</th>
+        </tr>
+        {% for task in tasks %}
+        <tr class="border p-2 bg-gray-100 ">
+            <td class="border p-2 bg-gray-100 ">{{ task.title }}</td>
+            <td class="border p-2 bg-gray-100 ">{{ task.description }}</td>
+            <td class="border p-2 bg-gray-100 ">{{ task.status }}</td>
+            <td class="border p-2 bg-gray-100 ">{{ task.due_date }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="4">No tasks found.</td>
+        </tr>
+        {% endfor %}
+    </table>  {% endcomment %}
 
-    <div>
-        <ul>
-            {% for task in tasks %}
-                <li> {{task}} </li>
-            {% endfor %}
-        </ul>
-    </div>
+    <h1>Tasks for {{ employee }}</h1>
+<table border="1">
+    <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Status</th>
+    </tr>
+    {% for task in tasks %}
+    <tr>
+        <td>{{ task.title }}</td>
+        <td>{{ task.description }}</td>
+        <td>{{ task.status }}</td>
+    </tr>
+    {% empty %}
+    <tr>
+        <td colspan="3">No tasks found for this employee.</td>
+    </tr>
+    {% endfor %}
+</table>
 
-    <div>
-        {{task_2}}
-    </div>
 </body>
 </html>
