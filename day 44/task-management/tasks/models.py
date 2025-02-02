@@ -27,7 +27,7 @@ class Task(models.Model):
         on_delete=models.CASCADE,
         default=1
     )
-    employee = models.ManyToManyField(Employee )
+    employee = models.ManyToManyField(Employee ,related_name='task')
     title = models.CharField(max_length=200)
     description = models.TextField()
     due_date = models.DateField()
@@ -45,13 +45,18 @@ class taskDetails(models.Model):
     Medium = 'Medium'
     Low = 'Low'
     PRIORITY_OPTIONS = (
-        (High , 'high'),
-        (Medium , 'medium'),
-        (Low , 'low'),
+        (High , 'High'),
+        (Medium , 'Medium'),
+        (Low , 'Low'),
     )
     
-    task = models.OneToOneField(Task , on_delete=models.CASCADE, default=1)  # Default value is set here
-    assign_to = models.CharField(max_length=200)
+    task = models.OneToOneField(
+        Task , 
+        on_delete=models.CASCADE, 
+        default=1,
+        related_name="details"
+    )  
+    # assign_to = models.CharField(max_length=200)
     priority = models.CharField(choices=PRIORITY_OPTIONS , default=Low)
     notes = models.TextField(blank=True , null=True)
 

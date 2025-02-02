@@ -1,5 +1,5 @@
 from django import forms 
-from tasks.models import Task
+from tasks.models import Task , taskDetails
 
 # Django form -- this is basic
 class TaskForm(forms.Form):
@@ -50,7 +50,7 @@ class TaskForm(forms.Form):
 
 class StyleFormMixin:
     # একটি ক্লাস সেট করুন যেটা সহজে কাস্টমাইজ করা যায়
-    common_class = "border border-gray-400 w-full rounded-md shadow-sm mt-2 mb-4 "
+    common_class = "border border-gray-400 w-full rounded-md shadow-lg mt-2 mb-4 "
     
     def apply_style_widgets(self):
         for field_name, field in self.fields.items():
@@ -68,11 +68,11 @@ class StyleFormMixin:
                 })
             elif isinstance(field.widget, forms.SelectDateWidget):
                 field.widget.attrs.update({
-                    'class': f" bg-gray-50 px-2 py-1 border border-gray-400 rounded-md shadow-sm mb-4"
+                    'class': f" bg-gray-100 px-2 py-1 border border-gray-400 rounded-md shadow-lg mb-4"
                 })
             elif isinstance(field.widget, forms.CheckboxSelectMultiple):
                 field.widget.attrs.update({
-                    'class': "flex flex-col  "  # চেকবক্স গুলো সুন্দর দেখাবে
+                    'class': f" rounded-md  mt-2 mb-4  " 
                 })
             else:
                 field.widget.attrs.update({
@@ -87,22 +87,20 @@ class TaskModelForm(StyleFormMixin ,forms.ModelForm):
         fields = [ 'title' , 'description' , 'due_date' , 'employee' ]
         # exclude = ['project' , 'is_completed' , 'created_at' , 'updated_at']
         widgets = {
-        #     'title' : forms.TextInput(attrs={
-        #         'class': "border border-gray-400 w-full rounded-sm shadow-sm mt-2 mb-4",
-        #         'placeholder': 'Inter your task title.'
-        #     }),
-        #     'description': forms.Textarea(attrs={
-        #         'class' : "border border-gray-500 w-full rounded-sm shadow-sm mt-2 mb-4",
-        #         'placeholder': 'Inter task details there .'
-        #     }),
-            'due_date': forms.SelectDateWidget(attrs={
-                'class' : " border border-gray-400 bg-gray-100 rounded-md "
-            }),
-        #     'employee': forms.CheckboxSelectMultiple(attrs={
-        #         'class': "mx-2 font-normal "
-        #     })
+            'due_date': forms.SelectDateWidget,
+            'employee': forms.CheckboxSelectMultiple,
         }
 
+    def __init__(self, *args, **kwargs):
+        super().__init__( *args , **kwargs)
+        # StyleFormMixin()
+        self.apply_style_widgets()
+
+class TaskDetailsModelForm(StyleFormMixin,forms.ModelForm):
+    class Meta:
+        model = taskDetails
+        fields = ['priority','notes']
+    
     def __init__(self, *args, **kwargs):
         super().__init__( *args , **kwargs)
         # StyleFormMixin()
