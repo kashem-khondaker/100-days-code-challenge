@@ -101,8 +101,8 @@ DATABASES = {
         'NAME': 'task_management',
         'USER': 'postgres',
         'PASSWORD': 'password',
-        'HOST': 'localhost',  # Use the correct host (default is localhost)
-        'PORT': '5432',       # Default PostgreSQL port
+        'HOST': 'localhost',  
+        'PORT': '5432',       
     }
 }
 

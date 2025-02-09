@@ -49,7 +49,6 @@ class TaskForm(forms.Form):
 
 
 class StyleFormMixin:
-    # একটি ক্লাস সেট করুন যেটা সহজে কাস্টমাইজ করা যায়
     common_class = "border border-gray-400 w-full rounded-md shadow-lg mt-2 mb-4 "
     
     def apply_style_widgets(self):
@@ -79,8 +78,6 @@ class StyleFormMixin:
                     'class': self.common_class
                 })
 
-
-# Model form start 
 class TaskModelForm(StyleFormMixin ,forms.ModelForm):
     class Meta:
         model = Task
@@ -93,7 +90,6 @@ class TaskModelForm(StyleFormMixin ,forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__( *args , **kwargs)
-        # StyleFormMixin()
         self.apply_style_widgets()
 
 class TaskDetailsModelForm(StyleFormMixin,forms.ModelForm):

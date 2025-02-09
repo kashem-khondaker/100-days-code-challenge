@@ -11,7 +11,7 @@ from tasks.models import Employee , Task , taskDetails,Project
 def manager_dashboard(request):
     
     
-    base_query = Task.objects.select_related('details').prefetch_related('employee').all()
+    base_query = Task.objects.select_related('details').prefetch_related('employee')
 
     type = request.GET.get('type','all')
 
@@ -30,7 +30,6 @@ def manager_dashboard(request):
         pending=Count('id', filter=Q(status='PENDING')),
         in_progress=Count('id', filter=Q(status='IN_PROGRESS')),
         completed=Count('id', filter=Q(status='COMPLETED')),
-
     )
     context = {
         "tasks":tasks,
@@ -76,7 +75,7 @@ def create_task(request):
 
 
 def update_task(request , id):
-    # employee = Employee.objects.all()
+    
     task = Task.objects.get(id=id)
     task_form = TaskModelForm(instance = task)
     task_detail_form = TaskDetailsModelForm(instance=task.details)
