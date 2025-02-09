@@ -6,5 +6,6 @@ from tasks.views import manager_dashboard
 
 urlpatterns = [
     path('my-admin/' , admin.site.urls),
-    path('tasks/' , include("tasks.urls"))
+    path('tasks/' , include("tasks.urls")),
+    path('users/',include("users.urls"))
 ]+ debug_toolbar_urls()
