@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body>
+    <h1>Welcome Home</h1>
+
+    
+
+    {% if user.is_authenticated %}
+        <p>Hello, <strong>{{ user.username }}</strong>! You are logged in.</p>
+        <form action="{% url 'logout' %}" method="POST">
+            {% csrf_token %}
+            <button type="submit">Logout</button>
+        </form>        
+    {% else %}
+        <p>User not logged in.</p>
+        <form action="{% url 'home' %}" method="POST">
+            {% csrf_token %}
+            <button type="submit"> Long In</button>
+        </form>
+    {% endif %}
+
+    <!--alert message-->
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+</body>
+</html>

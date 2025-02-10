@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Welcome registration learning Path .</h2>
+    <div>
+        <form action="{% url 'sign-in' %}" method="POST">
+            {% csrf_token %}
+            {% for field in form %}
+                <p>
+                    <label for="{{field.id_for_label}}">{{field.label}}</label>
+                    {{field}}
+                    
+                    <ul>
+                        {% if field.errors %}
+                            {% for error in field.errors %}
+                            <li>{{error}}</li>
+                            {% endfor %}
+                        {% endif %}
+                    </ul>
+                </p>
+            {% endfor %}
+            <button type="submit"> Sign UP </button>
+        </form>
+    </div>
+    <!--alert message-->
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+</body>
+</html>
