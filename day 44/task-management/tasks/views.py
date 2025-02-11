@@ -59,12 +59,16 @@ def create_task(request):
     if request.method == "POST":
         task_form = TaskModelForm(request.POST)
         task_detail_form = TaskDetailsModelForm(request.POST)
+        print(task_form)
+        print(task_detail_form)
         
         if task_form.is_valid() and task_detail_form.is_valid():
             task = task_form.save()
             task_detail = task_detail_form.save(commit=False)
             task_detail.task = task
+            print("1")
             task_detail.save()
+            print('2')
 
             messages.success(request,"Task Create Successfully")
             return redirect('create-task')
