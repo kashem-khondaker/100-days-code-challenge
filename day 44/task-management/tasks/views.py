@@ -78,27 +78,29 @@ def create_task(request):
 
 
 
-def update_task(request , id):
-    
-    task = Task.objects.get(id=id)
-    task_form = TaskModelForm(instance = task)
-    task_detail_form = TaskDetailsModelForm(instance=task.details)
-    
+def update_task(request, id):
+    task = get_object_or_404(Task, id=id)
+
+    task_details, created = taskDetails.objects.get_or_create(task=task)
+
+    task_form = TaskModelForm(instance=task)
+    task_detail_form = TaskDetailsModelForm(instance=task_details)
+
     if request.method == "POST":
-        task_form = TaskModelForm(request.POST , instance=task)
-        task_detail_form = TaskDetailsModelForm(request.POST,instance=task.details)
-        
+        task_form = TaskModelForm(request.POST, instance=task)
+        task_detail_form = TaskDetailsModelForm(request.POST, instance=task_details)
+
         if task_form.is_valid() and task_detail_form.is_valid():
             task = task_form.save()
-            task_detail = task_detail_form.save(commit=False)
-            task_detail.task = task
-            task_detail.save()
+            task_details = task_detail_form.save(commit=False)
+            task_details.task = task
+            task_details.save()
 
-            messages.success(request,"Task Update Successfully")
-            return redirect('update-task',id=id)
+            messages.success(request, "Task Updated Successfully")
+            return redirect('update-task', id=id)
 
-    context = {'task_form':task_form , "task_detail_form":task_detail_form}
-    return render(request , "dashboard/task_form.html" , context)
+    context = {'task_form': task_form, "task_detail_form": task_detail_form}
+    return render(request, "dashboard/task_form.html", context)
 
 def delete_task(request,id):
     if request.method=='POST':

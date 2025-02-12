@@ -41,6 +41,10 @@ class Task(models.Model):
 
     def __str__(self):
         return self.title
+    
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)  # Save Task first
+        task_details, created = taskDetails.objects.get_or_create(task=self)
 
 
 class taskDetails(models.Model):
@@ -58,7 +62,9 @@ class taskDetails(models.Model):
         # on_delete=models.CASCADE, 
         on_delete=models.DO_NOTHING, 
         default=1,
-        related_name="details"
+        related_name="details",
+        null=True,
+        blank=True
     )  
     # assign_to = models.CharField(max_length=200)
     priority = models.CharField(choices=PRIORITY_OPTIONS , default=Low)
@@ -95,6 +101,7 @@ class taskDetails(models.Model):
 def delete_associate_details(sender , instance , **kwargs):
     if isinstance:
         print(instance)
-        instance.details.delete()
-        print("deleted successfully ")
+        if instance.details:
+            instance.details.delete()
+            print("deleted successfully ")
 

@@ -3,12 +3,13 @@
 {% block tasks %}
 <div class="bg-white rounded-xl shadow-sm">
     <div
-      class="grid grid-cols-4 border-b p-4 border-gray-100 text-sm text-gray-500"
+      class="grid grid-cols-4 gap-4 border-b p-4 border-gray-100 text-sm text-gray-500"
     >
-      <div>TASK TITLE</div>
-      <div>PRIORITY</div>
-      <div>TEAM</div>
-      <div>CREATED AT</div>
+      <div class="font-bold">TASK TITLE</div>
+      <div class="font-bold">PRIORITY</div>
+      <div class="font-bold">TEAM</div>
+      <div class="font-bold"> CREATED AT</div>
+      {% comment %} <div> ACTION</div> {% endcomment %}
     </div>
     <!-- Task items wrapper -->
     <div class="divide-y divide-gray-100">
@@ -21,7 +22,7 @@
         <div>
           <div class="flex items-center gap-2 py-2">
             <div class="w-2 h-2 bg-green-500 rounded-full"></div>
-            <div>
+            <div class>
               <span>{{task.title}} </span>
               <a href="{% url 'update-task' task.id %}" class="px-2 py-1 bg-red-700 text-white rounded-lg shadow-lg">Edit</a>
               <form action="{% url 'delete-task' task.id %}" method="POST">
