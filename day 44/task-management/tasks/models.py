@@ -55,7 +55,8 @@ class taskDetails(models.Model):
     
     task = models.OneToOneField(
         Task , 
-        on_delete=models.CASCADE, 
+        # on_delete=models.CASCADE, 
+        on_delete=models.DO_NOTHING, 
         default=1,
         related_name="details"
     )  
@@ -90,5 +91,10 @@ class taskDetails(models.Model):
                 fail_silently=False,   # for show error when main not send !
             )
 
-
+@receiver(post_delete , sender = Task)
+def delete_associate_details(sender , instance , **kwargs):
+    if isinstance:
+        print(instance)
+        instance.details.delete()
+        print("deleted successfully ")
 
