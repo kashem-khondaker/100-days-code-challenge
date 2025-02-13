@@ -3,6 +3,7 @@ from django.db.models.signals import post_save , pre_save , pre_delete , post_de
 from django.dispatch import receiver
 from django.core.mail import send_mail
 
+
 class Employee(models.Model):
     name = models.CharField(max_length=100)
     email = models.EmailField(unique=True)
@@ -27,7 +28,8 @@ class Task(models.Model):
     ]
     project = models.ForeignKey(
         Project ,
-        on_delete=models.CASCADE,
+        # on_delete=models.CASCADE,
+        on_delete=models.DO_NOTHING,
         default=1
     )
     employee = models.ManyToManyField(Employee ,related_name='task')
@@ -42,9 +44,9 @@ class Task(models.Model):
     def __str__(self):
         return self.title
     
-    def save(self, *args, **kwargs):
-        super().save(*args, **kwargs)  # Save Task first
-        task_details, created = taskDetails.objects.get_or_create(task=self)
+    # def save(self, *args, **kwargs):
+    #     super().save(*args, **kwargs)  # Save Task first
+    #     task_details, created = taskDetails.objects.get_or_create(task=self)
 
 
 class taskDetails(models.Model):
@@ -63,8 +65,8 @@ class taskDetails(models.Model):
         on_delete=models.DO_NOTHING, 
         default=1,
         related_name="details",
-        null=True,
-        blank=True
+        # null=True,
+        # blank=True
     )  
     # assign_to = models.CharField(max_length=200)
     priority = models.CharField(choices=PRIORITY_OPTIONS , default=Low)
@@ -73,35 +75,39 @@ class taskDetails(models.Model):
     def __str__(self):
         return f"Details form Task {self.task.title}"
     
-    # @receiver(post_save , sender = Task)
-    # def Notify_task_creation(sender , instance , created , **kwargs):
-    #     if created:
-    #         print(sender)
-    #         print(instance)
-    #         print(kwargs)
+    @receiver(post_save , sender = Task)
+    def Notify_task_creation(sender , instance , created , **kwargs):
+        if created:
+            print(sender)
+            print(instance)
+            print(kwargs)
             
-    #         instance.is_completed = True
+            instance.is_completed = True
     
-    @receiver(m2m_changed , sender = Task.employee.through)
-    def Notify_employee_on_task_creation(sender , instance , action,**kwargs):
-        
-        
-        if action=="post_add":
-            assigned_emails = [emp.email for emp in instance.employee.all()]
-            print(assigned_emails)
-            send_mail(
-                "Checkout your new task ",
-                f"You have been assigned to this task : {instance.title}",
-                "kashem.khondaker.official001@gmail.com",
-                assigned_emails,
-                fail_silently=False,   # for show error when main not send !
-            )
+# @receiver(post_delete , sender = Task)
+# def delete_associate_details(sender , instance , **kwargs):
+#     if isinstance:
+#         print(instance)
+#         instance.details.delete()
+#         print("deleted successfully ")
 
-@receiver(post_delete , sender = Task)
-def delete_associate_details(sender , instance , **kwargs):
-    if isinstance:
-        print(instance)
-        if instance.details:
-            instance.details.delete()
-            print("deleted successfully ")
+@receiver(m2m_changed , sender = Task.employee.through)
+def Notify_employee_on_task_creation(sender , instance , action,**kwargs):        
+    if action=="post_add":
+        assigned_emails = [emp.email for emp in instance.employee.all()]
+        print(assigned_emails)
+        send_mail(
+            "Checkout your new task ",
+            f"You have been assigned to this task : {instance.title}",
+            "kashem.khondaker.official001@gmail.com",
+            assigned_emails,
+            fail_silently=False,   # for show error when main not send !
+        )
 
+# @receiver(post_delete , sender = Task)
+# def delete_associate_details(sender , instance , **kwargs):
+#     if isinstance:
+#         print(instance)
+#         if instance.details:
+#             instance.details.delete()
+#             print("deleted successfully ")
