@@ -25,28 +25,6 @@ class TaskForm(forms.Form):
         print(self.fields)
         self.fields['employee'].choices = [(emp.id , emp.name) for emp in employee]
 
-# class StyleFormMixin:
-
-#     common_class = "border border-gray-400 w-full rounded-sm shadow-sm mt-2 mb-4",
-    
-#     def apply_style_widgets(self):
-#         for field_name , field in self.fields.items():
-#             if isinstance(field.widget , forms.TextInput):
-#                 field.widget.attrs.update({
-#                     'class' : self.common_class,
-#                     'placeholder' : f"Enter {field.label.lower()}"
-#                 })
-#             elif isinstance(field.widget , forms.Textarea):
-#                 field.widget.attrs.update({
-#                     'class':self.common_class,
-#                     'placeholder': f"Enter {field.label.lower()}",
-#                     'rows': 5
-#                 })
-#             elif isinstance(field.widget , forms.CheckboxSelectMultiple):
-#                 field.widget.attrs.update({
-#                     'class' : self.common_class
-#                 })
-
 
 class StyleFormMixin:
     common_class = "border border-gray-400 w-full rounded-md shadow-lg mt-2 mb-4 "
@@ -81,7 +59,7 @@ class StyleFormMixin:
 class TaskModelForm(StyleFormMixin ,forms.ModelForm):
     class Meta:
         model = Task
-        fields = [ 'title' , 'description' , 'due_date' , 'employee' ]
+        fields = [ 'title' , 'description' , 'due_date' , 'employee' ]   
         # exclude = ['project' , 'is_completed' , 'created_at' , 'updated_at']
         widgets = {
             'due_date': forms.SelectDateWidget,
@@ -95,7 +73,7 @@ class TaskModelForm(StyleFormMixin ,forms.ModelForm):
 class TaskDetailsModelForm(StyleFormMixin,forms.ModelForm):
     class Meta:
         model = taskDetails
-        fields = ['priority','notes']
+        fields = ['priority','notes' , 'asset']
     
     def __init__(self, *args, **kwargs):
         super().__init__( *args , **kwargs)

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from tasks.models import Task,taskDetails , Employee,Project
+from tasks.models import Task,taskDetails ,Project
 
 # Register your models here.
 # class TaskAdmin(admin.ModelAdmin):
@@ -14,6 +14,5 @@ from tasks.models import Task,taskDetails , Employee,Project
 
 admin.site.register(Task)
 admin.site.register(taskDetails)
-admin.site.register(Employee)
 admin.site.register(Project)
 

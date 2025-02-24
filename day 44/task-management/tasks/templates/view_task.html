@@ -1,10 +1,5 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Task List</title>
-    {% comment %} <script src="https://unpkg.com/@tailwindcss/browser@4"></script> {% endcomment %}
-</head>
-<body>
+{% extends "home/base.html" %}
+{% block content %}
     <h1 class="bg-white text-black text-center font-extrabold mt-20">Task List</h1>
     <table border="1" class="border p-2 bg-gray-100 mx-auto mt-10 shadow-lg m-4">
         <tr class="border p-2 bg-gray-100 ">
@@ -27,26 +22,6 @@
         {% endfor %}
     </table>  
 
-    {% comment %} <h1>Tasks for {{ employee }}</h1>
-<table border="1">
-    <tr>
-        <th>Title</th>
-        <th>Description</th>
-        <th>Status</th>
-    </tr>
-    {% for task in tasks %}
-    <tr>
-        <td>{{ task.title }}</td>
-        <td>{{ task.description }}</td>
-        <td>{{ task.status }}</td>
-    </tr>
-    {% empty %}
-    <tr>
-        <td colspan="3">No tasks found for this employee.</td>
-    </tr>
-    {% endfor %}
-</table> {% endcomment %}
-
 <h2>Employees working on this project</h2>
 <ul>
     {% for emp in employees %}
@@ -56,5 +31,4 @@
     {% endfor %}
 </ul>
 
-</body>
-</html>
+{% endblock content %}

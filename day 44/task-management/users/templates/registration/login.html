@@ -1,27 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Welcome to Authentication system</h1>
-    <div>
-        <form action="" method = "POST">
-            {% csrf_token %}
-            <p>
-                <label for="user_name" > User name</label> 
-            <input type="text" id="user_name" placeholder = "user name" name="username"> 
-            </p>
-            <p>
-                <label for="password" type="password" >Password</label>
-            <input type="password" id="password" name="password"><br>
-            </p>
-            <button type="submit">Sign In</button>
-        </form>
-    </div>
-    <!--alert message-->
+{% extends "base.html" %}
+{% block content %}
+<!--alert message-->
     {% if messages %}
         {% for message in messages %}
             <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}">
@@ -29,5 +8,25 @@
             </div>
         {% endfor %}
     {% endif %}
-</body>
-</html>
+    
+    <div class="flex justify-center items-center min-h-screen bg-gray-100">
+        <div class="w-full max-w-md bg-white p-8 rounded-lg shadow-lg">
+            <h2 class="text-2xl font-semibold text-center mb-6 text-gray-800">Sign In</h2>
+            <form action="{% url 'sign-in' %}" method="POST" class="space-y-4">
+                {% csrf_token %}
+                
+                {{ form.as_p }}
+                
+                <button type="submit" class="w-full px-4 py-2 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-semibold rounded-lg transition-all transform hover:scale-105 shadow-md">Sign In</button>
+            </form>
+            <div class="mt-4 text-center">
+                <a href="{% url 'sign-up' %}" class="text-blue-500 hover:underline">Don't have an account? Sign Up</a>
+            </div>
+            <div class="mt-2 text-center">
+                <a href="javascript:history.back()" class="text-gray-500 hover:underline">Go Back</a>
+            </div>
+        </div>
+    </div>
+    
+    
+    {% endblock content %}

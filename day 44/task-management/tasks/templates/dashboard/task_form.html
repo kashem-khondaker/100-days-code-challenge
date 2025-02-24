@@ -1,38 +1,31 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Get Post Method</title>
-    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
-    {% comment %} <link rel="stylesheet" href="{% static 'css/output.css' %}"> {% endcomment %}
-</head>
-<body>
-    <div class=" w-1/2 mx-auto mt-8">
-        <!-- Message Block -->
-        <div>
-            {% if messages %}
-                {% for message in messages %}
-                <p class="text-green-500 font-bold mb-4">{{ message }}</p>
-                {% endfor %}
-            {% endif %}
+{% extends "base.html" %}
+{% block content %}
+<div class="w-full max-w-lg mx-auto my-10 p-6 bg-white shadow-lg rounded-lg">
+    <!-- Message Block -->
+    {% if messages %}
+        <div class="mb-4">
+            {% for message in messages %}
+                <p class="text-green-600 font-semibold bg-green-100 p-2 rounded-md mb-2">{{ message }}</p>
+            {% endfor %}
         </div>
-        <!-- Form Block -->
-        <div >
-            <form method="post">
-                {% csrf_token %}
-                {{ task_form.as_p }}
-                {{task_detail_form}}
-                
-                <button 
-                    type="submit" 
-                    class="bg-rose-500 text-white p-4 mt-4  rounded-md shadow-sm "
-                >
-                    Submit
-                </button>
-            </form>
+    {% endif %}
+
+    <!-- Form Block -->
+    <form method="post" enctype="multipart/form-data" class="space-y-4">
+        {% csrf_token %}
+
+        <div class="space-y-3">
+            {{ task_form.as_p }}
+            {{ task_detail_form }}
         </div>
-    </div>
-</body>
-</html>
+
+        <button 
+            type="submit" 
+            class="w-full bg-rose-600 hover:bg-rose-700 text-white font-semibold py-3 rounded-lg shadow-md transition duration-300"
+        >
+            Submit
+        </button>
+    </form>
+</div>
+
+{% endblock content %}
