@@ -1,12 +1,15 @@
 from django.shortcuts import render , redirect,HttpResponse
 from django.contrib.auth.models import User,Group
-from users.forms import  CustomRegistrationForm,AssignedRoleForm , CreateGroupForm
+from users.forms import  CustomRegistrationForm,AssignedRoleForm , CreateGroupForm,CustomPasswordChangeForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
-from users.forms import CustomLoginForm
+from users.forms import LoginForm
 from django.contrib.auth.tokens import default_token_generator
 from django.db.models import Prefetch
 from django.contrib.auth.decorators import login_required , user_passes_test
+from django.contrib.auth.views import LoginView , PasswordChangeView 
+from django.views.generic import TemplateView
+
 # from django.contrib.auth.forms import AuthenticationForm
 
 # Create your views here.
@@ -32,16 +35,41 @@ def sign_up(request):
 
 def sign_in(request):
 
-    form = CustomLoginForm()
+    form = LoginForm()
 
     if request.method == "POST":
-        form = CustomLoginForm(data=request.POST)
+        form = LoginForm(data=request.POST)
         if form.is_valid():
             user = form.get_user()
             login(request , user)
             return redirect('home')
 
     return render(request, 'registration/login.html' , {'form':form})
+
+
+class CustomLoginView(LoginView):
+    form_class = LoginForm
+
+    def get_success_url(self):
+        next_url = self.request.GET.get('next') or self.request.POST.get('next')
+        return next_url if next_url else super().get_success_url()
+
+
+class ProfileView(TemplateView):
+    template_name = 'accounts/profile.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        context['username'] = self.request.user.username
+        context['email'] =  self.request.user.email
+        context['name'] = self.request.user.get_full_name()
+
+        context['member_since'] = self.request.user.date_joined
+        context['last_login'] =  self.request.user.last_login
+
+        return context
+
 
 @login_required
 def user_logout(request):
@@ -54,6 +82,10 @@ def user_logout(request):
         return redirect('home')
 
     return redirect('home')
+
+class ChangePassword(PasswordChangeView):
+    template_name = 'accounts/password_change.html'
+    form_class = CustomPasswordChangeForm
 
 
 def activate_user(request , user_id , token):

@@ -5,6 +5,7 @@ import re
 from tasks.forms import StyleFormMixin
 from django import forms
 from django.contrib.auth.models import User
+from django.contrib.auth.forms import PasswordChangeForm
 
 
 # code code code code code 
@@ -67,7 +68,7 @@ class CustomRegistrationForm(forms.ModelForm):
         return password
 
 
-class CustomLoginForm(StyleFormMixin,AuthenticationForm):
+class LoginForm(StyleFormMixin,AuthenticationForm):
     def __init__(self , *args , **kwargs):
         super().__init__(*args , **kwargs)
 
@@ -88,3 +89,6 @@ class CreateGroupForm(StyleFormMixin , forms.ModelForm):
     class Meta:
         model = Group
         fields = ['name','permissions']
+
+class CustomPasswordChangeForm(StyleFormMixin, PasswordChangeForm):
+    pass
