@@ -19,9 +19,11 @@
                 
                 <button type="submit" class="w-full px-4 py-2 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-semibold rounded-lg transition-all transform hover:scale-105 shadow-md">Sign In</button>
             </form>
-            <div class="mt-4 text-center">
+            <div class="mt-4 text-center flex gap-3">
                 <a href="{% url 'sign-up' %}" class="text-blue-500 hover:underline">Don't have an account? Sign Up</a>
+                <a href="{% url 'password_reset' %}" class="text-orange-600 hover:underline">password reset </a>
             </div>
+            
             <div class="mt-2 text-center">
                 <a href="javascript:history.back()" class="text-gray-500 hover:underline">Go Back</a>
             </div>

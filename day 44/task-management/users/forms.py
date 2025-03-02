@@ -1,14 +1,15 @@
 from django import forms 
-from django.contrib.auth.forms import UserCreationForm ,AuthenticationForm
-from django.contrib.auth.models import User,Permission,Group
+from django.contrib.auth.models import Permission,Group
 import re
 from tasks.forms import StyleFormMixin
-from django import forms
-from django.contrib.auth.models import User
-from django.contrib.auth.forms import PasswordChangeForm
+from django.contrib.auth.forms import UserCreationForm ,AuthenticationForm, PasswordChangeForm ,  PasswordResetForm , SetPasswordForm
+from users.models import CustomUser
+from django.contrib.auth import get_user_model
 
 
 # code code code code code 
+
+User = get_user_model()
 
 class RegistrationForm(UserCreationForm):
     class Meta:
@@ -23,49 +24,60 @@ class RegistrationForm(UserCreationForm):
             self.fields[fieldname].help_text = None
 
 
-
-class CustomRegistrationForm(forms.ModelForm):
-    
-    password = forms.CharField(
-        widget=forms.PasswordInput(attrs={"class": "w-full p-2 border rounded-lg", "placeholder": "Enter Password"})
-    )
-    confirm_password = forms.CharField(
-        widget=forms.PasswordInput(attrs={"class": "w-full p-2 border rounded-lg", "placeholder": "Confirm Password"})
-    )
+class CustomRegistrationForm(StyleFormMixin, forms.ModelForm):
+    password1 = forms.CharField(widget=forms.PasswordInput)
+    confirm_password = forms.CharField(widget=forms.PasswordInput)
 
     class Meta:
         model = User
-        fields = ['username', 'first_name', 'last_name', 'email', 'password', 'confirm_password']
-        widgets = {
-            "username": forms.TextInput(attrs={"class": "w-full p-2 border rounded-lg", "placeholder": "Enter Username"}),
-            "first_name": forms.TextInput(attrs={"class": "w-full p-2 border rounded-lg", "placeholder": "Enter First Name"}),
-            "last_name": forms.TextInput(attrs={"class": "w-full p-2 border rounded-lg", "placeholder": "Enter Last Name"}),
-            "email": forms.EmailInput(attrs={"class": "w-full p-2 border rounded-lg", "placeholder": "Enter Email"}),
-        }
+        fields = ['username', 'first_name', 'last_name','email',
+                  'password1', 'confirm_password']
 
-    def clean_password(self):
-        password = self.cleaned_data.get('password')
-        confirm_password = self.cleaned_data.get('confirm_password')
-        error = []
+    def clean_email(self):
+        email = self.cleaned_data.get('email')
+        email_exists = User.objects.filter(email=email).exists()
 
-        if not re.search(r'[@#$%^&+=]', password):
-            error.append('Password must have at least one special character (@#$%^&+=)')
-        if not re.search(r'[A-Z]', password):
-            error.append('Password must contain at least one uppercase letter (A-Z).')
-        if not re.search(r'[a-z]', password):
-            error.append('Password must contain at least one lowercase letter (a-z).')
-        if not re.search(r'[0-9]', password):
-            error.append('Password must contain at least one number (0-9).')
-        if len(password) < 8:
-            error.append('Password must be at least 8 characters long.')
+        if email_exists:
+            raise forms.ValidationError("Email already exists")
 
-        if password != confirm_password:
-            error.append('Passwords do not match.')
+        return email
 
-        if error:
-            raise forms.ValidationError(error)
+    def clean_password1(self):
+        password1 = self.cleaned_data.get('password1')
+        errors = []
 
-        return password
+        if len(password1) < 8:
+            errors.append('Password must be at least 8 character long')
+
+        if not re.search(r'[A-Z]', password1):
+            errors.append(
+                'Password must include at least one uppercase letter.')
+
+        if not re.search(r'[a-z]', password1):
+            errors.append(
+                'Password must include at least one lowercase letter.')
+
+        if not re.search(r'[0-9]', password1):
+            errors.append('Password must include at least one number.')
+
+        if not re.search(r'[@#$%^&+=]', password1):
+            errors.append(
+                'Password must include at least one special character.')
+
+        if errors:
+            raise forms.ValidationError(errors)
+
+        return password1
+
+    def clean(self):  # non field error
+        cleaned_data = super().clean()
+        password1 = cleaned_data.get('password1')
+        confirm_password = cleaned_data.get('confirm_password')
+
+        if password1 and confirm_password and password1 != confirm_password:
+            raise forms.ValidationError("Password do not match")
+
+        return cleaned_data
 
 
 class LoginForm(StyleFormMixin,AuthenticationForm):
@@ -90,5 +102,54 @@ class CreateGroupForm(StyleFormMixin , forms.ModelForm):
         model = Group
         fields = ['name','permissions']
 
+
 class CustomPasswordChangeForm(StyleFormMixin, PasswordChangeForm):
     pass
+class CustomPasswordResetForm(StyleFormMixin, PasswordResetForm ):
+    pass
+class CustomPasswordResetConfirmForm(StyleFormMixin, SetPasswordForm):
+    pass
+
+"""
+class EditProfileForm(StyleFormMixin, forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ['email', 'first_name', 'last_name']
+
+    bio = forms.CharField(required=False, widget=forms.Textarea, label='Bio')
+    profile_image = forms.ImageField(required=False, label='Profile Image')
+
+    def __init__(self, *args, **kwargs):
+        self.userprofile = kwargs.pop('userprofile', None)
+        super().__init__(*args, **kwargs)
+        print("forms", self.userprofile)
+
+        # Todo: Handle Error
+
+        if self.userprofile:
+            self.fields['bio'].initial = self.userprofile.bio
+            self.fields['profile_image'].initial = self.userprofile.profile_image
+
+    def save(self, commit=True):
+        user = super().save(commit=False)
+
+        # Save userProfile jodi thake
+        if self.userprofile:
+            self.userprofile.bio = self.cleaned_data.get('bio')
+            self.userprofile.profile_image = self.cleaned_data.get(
+                'profile_image')
+
+            if commit:
+                self.userprofile.save()
+
+        if commit:
+            user.save()
+
+        return user
+"""
+
+
+class EditProfileForm(StyleFormMixin, forms.ModelForm):
+    class Meta:
+        model = CustomUser
+        fields = ['email' , 'first_name' , 'last_name' , 'bio' , 'profile_image']

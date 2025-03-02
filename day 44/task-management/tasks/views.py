@@ -293,6 +293,7 @@ class ViewProject(ListView):
 
 
 
+
 @login_required
 @permission_required("tasks.view_task" , login_url='no_permission')
 def view_employee_tasks(request,employee_id ):

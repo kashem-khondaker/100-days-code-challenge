@@ -1,5 +1,6 @@
 from django import forms 
 from tasks.models import Task , taskDetails
+# from django.contrib.auth.models import User
 
 # Django form -- this is basic
 class TaskForm(forms.Form):

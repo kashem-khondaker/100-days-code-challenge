@@ -1,18 +1,24 @@
 from django.shortcuts import render , redirect,HttpResponse
-from django.contrib.auth.models import User,Group
-from users.forms import  CustomRegistrationForm,AssignedRoleForm , CreateGroupForm,CustomPasswordChangeForm
+from django.contrib.auth.models import Group
+from users.forms import  CustomRegistrationForm,AssignedRoleForm , CreateGroupForm,CustomPasswordChangeForm , CustomPasswordResetForm , CustomPasswordResetConfirmForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
-from users.forms import LoginForm
+from users.forms import LoginForm , EditProfileForm
+from users.models import CustomUser
 from django.contrib.auth.tokens import default_token_generator
 from django.db.models import Prefetch
 from django.contrib.auth.decorators import login_required , user_passes_test
-from django.contrib.auth.views import LoginView , PasswordChangeView 
-from django.views.generic import TemplateView
+from django.contrib.auth.views import LoginView , PasswordChangeView ,PasswordResetView , PasswordResetConfirmView
+from django.views.generic import TemplateView,UpdateView
+from django.urls import reverse_lazy
+from django.contrib.auth import get_user_model
 
 # from django.contrib.auth.forms import AuthenticationForm
 
 # Create your views here.
+
+
+User = get_user_model()
 
 def sign_up(request):
     if request.method == "POST":
@@ -20,17 +26,19 @@ def sign_up(request):
         if form.is_valid():
             user = form.save(commit=False)
             user.is_active = False
-            print('user',user)
             user.set_password(form.cleaned_data.get('password'))
-            print(form.cleaned_data)
             user.save()
             
-            messages.success(request, f'Welcome {user.username}! A confirmation mail send .Please checkout your email.')
+            messages.success(request, f'Welcome {user.username}! A confirmation mail has been sent. Please check your email.')
             return redirect('sign-in')  
+        else:
+            print("Form errors:", form.errors)  # Errors দেখার জন্য
+
     else:
         form = CustomRegistrationForm()
 
     return render(request, 'registration/signUp.html', {'form': form})
+
 
 
 def sign_in(request):
@@ -64,19 +72,93 @@ class ProfileView(TemplateView):
         context['username'] = self.request.user.username
         context['email'] =  self.request.user.email
         context['name'] = self.request.user.get_full_name()
+        context['bio'] = self.request.user.bio
+        context['profile_image'] = self.request.user.profile_image
 
         context['member_since'] = self.request.user.date_joined
         context['last_login'] =  self.request.user.last_login
 
         return context
+    
+"""
+
+class EditProfileView(UpdateView):
+    model = User
+    form_class = EditProfileForm
+    template_name = 'accounts/update_profile.html'
+    context_object_name = 'form'
+
+    def get_object(self):
+        return self.request.user
+
+    def get_form_kwargs(self):
+        kwargs = super().get_form_kwargs()
+        kwargs['userprofile'] = UserProfile.objects.get(user=self.request.user)
+        return kwargs
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        user_profile = UserProfile.objects.get(user=self.request.user)
+        print("views", user_profile)
+        context['form'] = self.form_class(
+            instance=self.object, userprofile=user_profile)
+        return context
+
+    def form_valid(self, form):
+        form.save(commit=True)
+        return redirect('profile_view')
+
+"""
+    
+class EditProfileView(UpdateView):
+    model = User
+    form_class = EditProfileForm
+    template_name = 'accounts/update_profile.html'
+    context_object_name = 'form'
+
+    def get_object(self):
+        return self.request.user
+
+    def form_valid(self, form):
+        form.save()
+        return redirect('profile_view')
+    
+class CustomPasswordResetView(PasswordResetView):
+    form_class = CustomPasswordResetForm
+    template_name = 'registration/reset_password.html'
+    success_url = reverse_lazy('sign-in')
+    html_email_template_name = 'registration/reset_email.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['protocol'] = 'https' if self.request.is_secure() else 'http'
+        context['domain'] = self.request.get_host()
+        print(context)
+        return context
+
+    def form_valid(self, form):
+        messages.success(
+            self.request, 'A Reset email sent. Please check your email')
+        return super().form_valid(form)
+
+
+class CustomPasswordResetConfirmView(PasswordResetConfirmView):
+    form_class = CustomPasswordResetConfirmForm
+    template_name = 'registration/reset_password.html'
+    success_url = reverse_lazy('sign-in')
+
+    def form_valid(self, form):
+        messages.success(
+            self.request, 'Password reset successfully')
+        return super().form_valid(form)
 
 
 @login_required
 def user_logout(request):
-    print('something ')
+    # print('something ')
     print(request.method)
     if request.method == "POST":
-        print('wellcome')
+        # print('wellcome')
         logout(request)
         messages.success(request, "You have successfully logged out.")  # Logout success message
         return redirect('home')

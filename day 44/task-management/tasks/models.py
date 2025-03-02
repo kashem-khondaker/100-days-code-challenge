@@ -1,5 +1,6 @@
 from django.db import models
-from django.contrib.auth.models import User
+from django.conf import settings
+# from django.contrib.auth.models import User
 
 
 # class Employee(models.Model):
@@ -31,7 +32,7 @@ class Task(models.Model):
         default=1
     )
     # employee = models.ManyToManyField(Employee ,related_name='task')
-    employee = models.ManyToManyField(User ,related_name='task' )
+    employee = models.ManyToManyField(settings.AUTH_USER_MODEL ,related_name='task' )
     title = models.CharField(max_length=200)
     description = models.TextField()
     due_date = models.DateField()
