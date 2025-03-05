@@ -32,8 +32,7 @@ def sign_up(request):
             messages.success(request, f'Welcome {user.username}! A confirmation mail has been sent. Please check your email.')
             return redirect('sign-in')  
         else:
-            print("Form errors:", form.errors)  # Errors দেখার জন্য
-
+            print("Form errors:", form.errors)  
     else:
         form = CustomRegistrationForm()
 
@@ -79,37 +78,8 @@ class ProfileView(TemplateView):
         context['last_login'] =  self.request.user.last_login
 
         return context
-    
-"""
 
-class EditProfileView(UpdateView):
-    model = User
-    form_class = EditProfileForm
-    template_name = 'accounts/update_profile.html'
-    context_object_name = 'form'
 
-    def get_object(self):
-        return self.request.user
-
-    def get_form_kwargs(self):
-        kwargs = super().get_form_kwargs()
-        kwargs['userprofile'] = UserProfile.objects.get(user=self.request.user)
-        return kwargs
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        user_profile = UserProfile.objects.get(user=self.request.user)
-        print("views", user_profile)
-        context['form'] = self.form_class(
-            instance=self.object, userprofile=user_profile)
-        return context
-
-    def form_valid(self, form):
-        form.save(commit=True)
-        return redirect('profile_view')
-
-"""
-    
 class EditProfileView(UpdateView):
     model = User
     form_class = EditProfileForm

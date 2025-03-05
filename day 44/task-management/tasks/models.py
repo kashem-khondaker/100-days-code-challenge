@@ -27,9 +27,10 @@ class Task(models.Model):
     ]
     project = models.ForeignKey(
         Project ,
-        # on_delete=models.CASCADE,
-        on_delete=models.DO_NOTHING,
-        default=1
+        on_delete=models.CASCADE,
+        # on_delete=models.DO_NOTHING,
+        # default=1
+        
     )
     # employee = models.ManyToManyField(Employee ,related_name='task')
     employee = models.ManyToManyField(settings.AUTH_USER_MODEL ,related_name='task' )
